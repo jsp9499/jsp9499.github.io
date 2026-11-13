@@ -54,7 +54,7 @@ ul.chk li::before{content:"✓";position:absolute;left:12px;top:9px;width:18px;h
 .step span{font-size:14px;color:var(--ink2)}
 table{width:100%;border-collapse:collapse;font-size:15px}
 th,td{border:1px solid var(--line);padding:10px;text-align:left;vertical-align:top}
-th{background:var(--lime2);width:24%;white-space:nowrap}
+th{background:var(--lime2);width:24%;white-space:normal;word-break:keep-all}
 .small{font-size:13px;color:var(--mute);margin-top:8px}
 .rel{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media(max-width:620px){.rel{grid-template-columns:1fr}}
@@ -79,6 +79,8 @@ details p{margin-top:8px;color:var(--ink2)}
 .whys span{color:var(--ink2);font-size:15px}
 .vs th{background:var(--g700);color:#fff;width:auto}
 .vs{table-layout:fixed}
+.vs th:first-child,.vs td:first-child{width:24%}
+.vs td{word-break:keep-all}
 .vs td:first-child{font-weight:700;background:var(--lime2)}
 .vs td:nth-child(2){color:var(--mute)}
 .vs td:nth-child(3){color:var(--g700);font-weight:600}
@@ -167,7 +169,7 @@ footer{text-align:center;font-size:13px;color:var(--mute);padding:24px 20px 40px
     <div><b>⑤ 한 번으로 끝나지 않게, 바쁜 담당자의 시간은 줄이게</b><span>찾은 위험과 대책을 지속적으로 교육하고 수시·정기평가 시기를 챙깁니다. 사업장 정보를 한 번만 받으면 바인더 전체가 같은 정보로 맞춰지니, 담당자는 확인과 서명에 집중하시면 됩니다.</span></div>
   </div>
   <table class="vs">
-    <tr><th></th><th>자체적으로만 할 때 흔한 빈틈</th><th>전문가와 함께할 때</th></tr>
+    <tr><th></th><th>혼자 할 때 흔한 빈틈</th><th>전문가와 함께하면</th></tr>
     <tr><td>위험 찾기</td><td>늘 보던 위험만 적힘</td><td>제3자 시각 + 업종별 사례로 숨은 위험까지</td></tr>
     <tr><td>위험성 결정</td><td>사람마다 다른 판단</td><td>미리 정한 허용 기준의 같은 잣대</td></tr>
     <tr><td>개선</td><td>대책만 적고 끝</td><td>개선 전·후 사진과 이행 일자로 확인</td></tr>
