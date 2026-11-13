@@ -1,0 +1,63 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>위험성평가 개선 사례 모음 — 현장 점검에서 찾은 위험과 개선 | 컨설턴트 박준서</title>
+<meta name="description" content="제조업 현장 점검에서 찾은 위험요인과 개선 방법을 사례별로 정리했습니다. 프레스 끼임, 지게차 깔림, 산업용 로봇 부딪힘 등 위험성평가 개선 사례와 법적 근거.">
+<link rel="canonical" href="https://jsp9499.github.io/case/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',sans-serif;color:#1d2b24;background:#f4f8f5;font-size:17px;line-height:1.65}
+a{color:#1f7a4d}
+.bar{background:#14402a;color:#fff;padding:12px 18px;display:flex;justify-content:space-between;align-items:center;font-size:15px}
+.bar a{color:#fff;text-decoration:none;font-weight:700}
+.wrap{max-width:760px;margin:0 auto;padding:18px}
+.crumb{font-size:14px;color:#5d6e64;margin-bottom:10px}
+.hero{background:linear-gradient(135deg,#14402a,#1f7a4d);color:#fff;border-radius:16px;padding:24px 20px;margin-bottom:18px}
+.hero .tag{display:inline-block;background:rgba(255,255,255,.18);border-radius:20px;padding:2px 12px;font-size:13px;margin-bottom:10px}
+.hero h1{font-size:25px;line-height:1.35}
+.hero p{opacity:.92;margin-top:8px;font-size:16px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;font-size:13px}
+.meta span{background:rgba(255,255,255,.15);border-radius:6px;padding:3px 9px}
+.card{background:#fff;border:1px solid #d6e6dc;border-radius:14px;padding:18px;margin-bottom:16px}
+.card h2{font-size:19px;color:#14402a;margin-bottom:10px}
+.card ul{padding-left:20px} .card li{margin:5px 0}
+.btn{display:block;text-align:center;background:#1f7a4d;color:#fff;text-decoration:none;font-weight:700;font-size:18px;padding:16px;border-radius:12px;margin:10px 0}
+.btn.line{background:#fff;color:#1f7a4d;border:2px solid #1f7a4d}
+.small{font-size:14px;color:#5d6e64}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{border:1px solid #cfe0d6;padding:8px 6px;text-align:center}
+th{background:#dcefe3;color:#14402a} td.l{text-align:left}
+.max{color:#c2410c;font-weight:700}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.grid div{border:2px solid #1f7a4d;border-radius:12px;padding:12px;text-align:center;background:#fff}
+.grid b{display:block;font-size:22px;color:#14402a}
+.rel a{display:block;padding:12px 14px;border:1px solid #d6e6dc;border-radius:10px;margin:8px 0;text-decoration:none;color:#1d2b24;background:#f7fbf8}
+.rel b{color:#1f7a4d}
+.cta{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+footer{text-align:center;font-size:13px;color:#5d6e64;padding:24px 16px}
+.preview .pv-main{display:block;position:relative;border:1px solid #d6e6dc;border-radius:10px;overflow:hidden;max-height:560px}
+.preview .pv-main img{display:block;width:100%;height:auto}
+.preview .pv-main::after{content:"";position:absolute;left:0;right:0;bottom:0;height:140px;background:linear-gradient(rgba(255,255,255,0),#fff)}
+.pv-badge{position:absolute;top:10px;left:10px;z-index:1;background:#1f7a4d;color:#fff;font-size:13px;font-weight:700;padding:4px 10px;border-radius:99px}
+.pv-thumbs{display:flex;gap:10px;margin-top:12px;overflow-x:auto}
+.pv-th{flex:0 0 110px;text-align:center;font-size:12px;color:#6e8079}
+.pv-th img{width:110px;height:auto;border:1px solid #d6e6dc;border-radius:6px;display:block;margin-bottom:4px}
+.pv-more{flex:0 0 110px;display:grid;place-items:center;text-align:center;border:1px dashed #9cc7ae;border-radius:6px;font-size:13px;color:#1f7a4d;min-height:120px}
+@media(max-width:420px){.hero h1{font-size:22px}.grid,.cta{grid-template-columns:1fr}}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ph{border:2px dashed #9cc7ae;border-radius:10px;aspect-ratio:4/3;display:grid;place-items:center;text-align:center;color:#6e8079;font-size:14px;background:repeating-linear-gradient(45deg,#f2f8f4 0 10px,#e8f3ec 10px 20px)}
+.ph b{display:block;color:#1f7a4d;font-size:15px}
+.tagb{display:inline-block;font-size:12px;font-weight:700;padding:2px 8px;border-radius:99px;margin-bottom:6px}
+.before{background:#fde8e1;color:#b4361b}.after{background:#dcefe3;color:#14402a}
+.risk{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:700}
+.risk .h{background:#c2410c;color:#fff;border-radius:8px;padding:4px 12px}.risk .l{background:#1f7a4d;color:#fff;border-radius:8px;padding:4px 12px}
+ol.chk li{margin:6px 0}
+</style></head><body>
+<div class="bar"><a href="/">← 컨설턴트 박준서</a><span>개선 사례</span></div>
+<div class="wrap">
+<div class="crumb"><a href="/">홈</a> › 자료실 › 위험성평가 개선 사례</div>
+<div class="hero"><span class="tag">개선 사례</span><h1>위험성평가 개선 사례 모음</h1>
+<p>현장 점검에서 찾은 위험을 어떻게 고쳤는지, 법적 근거와 함께 정리합니다. 사례는 계속 늘어납니다.</p></div>
+<div class="card rel"><h2>사례 목록</h2><a href="/case/press-belt-guard.html"><b>프레스 벨트에 덮개가 없다면? 말림 사고, 이렇게 막았습니다</b><br><span class="small">금속가공·기계부품 제조 · 프레스 동력전달부 · 끼임 · 위험성 상→하</span></a><a href="/case/forklift-seatbelt.html"><b>지게차가 넘어질 때 운전자를 지키는 것은 안전띠입니다</b><br><span class="small">금속가공·기계부품 제조 · 지게차 · 깔림 · 위험성 상→하</span></a><a href="/case/robot-fence-interlock.html"><b>로봇 울타리 문이 열려도 로봇이 멈추지 않는다면?</b><br><span class="small">금속가공·기계부품 제조 · 산업용 로봇 · 부딪힘 · 위험성 상→하</span></a></div>
+<div class="card"><h2>우리 사업장 위험성평가가 막막하다면</h2>
+<div class="cta"><a class="btn" href="/#consult">상담 신청</a><a class="btn line" href="/#subscribe">이슈레터 구독</a></div></div>
+<p class="small">실제 컨설팅에서 확인한 사례를 업종·공정 수준으로 일반화했습니다. 사업장명·지역 등은 싣지 않습니다.</p>
+</div><footer>정리 컨설턴트 박준서 · <a href="/">jsp9499.github.io</a></footer></body></html>
