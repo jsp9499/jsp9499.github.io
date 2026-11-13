@@ -120,6 +120,8 @@ section{padding:44px 0}
 .svc .ic{font-family:var(--mono);font-size:12px;color:#fff;background:var(--g700);width:max-content;padding:3px 9px;border-radius:6px}
 .svc h4{font-size:17px}
 .svc p{font-size:14px;color:var(--ink2)}
+.svc .more{margin-top:auto;font-size:13px;font-weight:700;color:var(--g700)}
+.svc a.card{color:inherit;text-decoration:none}
 .svc ul{list-style:none;font-size:13px;color:var(--mute)}
 .svc li::before{content:"› ";color:var(--g500)}
 
@@ -163,6 +165,16 @@ section{padding:44px 0}
 .lk b::after{content:"↗";color:var(--g500);font-family:var(--mono)}
 .lk span{font-size:13px;color:var(--mute)}
 .lk small{font-family:var(--mono);font-size:11px;color:var(--g500)}
+.prof .pf{display:flex;gap:14px;align-items:center}
+.prof .av{width:52px;height:52px;border-radius:50%;background:var(--g700);color:#fff;display:grid;place-items:center;font-weight:800;font-size:20px;flex:0 0 52px}
+.prof .pf b{display:block;font-size:18px}.prof .pf span{font-size:14px;color:var(--mute)}
+.prof .kp{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
+@media(max-width:560px){.prof .kp{grid-template-columns:1fr}}
+.prof .kp div{background:var(--lime2);border-radius:10px;padding:10px 12px}
+.prof .kp em{font-style:normal;display:block;font-family:var(--mono);font-size:22px;font-weight:800;color:var(--g700)}
+.prof .kp span{font-size:13px;color:var(--ink2)}
+.prof p{color:var(--ink2)}
+#about{padding:24px 0 0}
 footer{border-top:1px solid var(--line);margin-top:44px;padding:28px 0 40px;font-size:13px;color:var(--mute)}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
 footer b{color:var(--ink2)}
@@ -229,16 +241,25 @@ footer b{color:var(--ink2)}
   <p class="note">※ 자가진단은 참고용입니다. 법적 이행 여부는 사업장 상황에 따라 전문가 확인이 필요합니다.</p>
 </div>
 
+<!-- PROFILE -->
+<section id="about">
+  <div class="card prof">
+    <div class="pf"><div class="av">박</div><div><b>컨설턴트 박준서</b><span>한국산업안전보건기술원 · 코리아세이프티(주) · ISO 45001 심사원</span></div></div>
+    <div class="kp"><div><em>300+</em><span>위험성평가 수행 사업장</span></div><div><em>9년</em><span>현장·컨설팅 경력</span></div><div><em>건설·병원·제조</em><span>직접 겪어 본 현장</span></div></div>
+    <p>건설현장에서 안전 실무를 시작해 병원을 거쳐, 2020년부터 고용노동부 지정 안전관리전문기관에서 제조업 사업장의 위험성평가와 안전보건관리체계 구축을 돕고 있습니다. 현장을 직접 겪어 본 사람의 눈으로, 서류가 아니라 현장이 바뀌는 평가를 합니다.</p>
+  </div>
+</section>
+
 <!-- SERVICES -->
 <section id="service">
   <div class="sh"><h2>무엇을 도와드리나요</h2><span class="code">/services</span></div>
   <div class="grid svc">
-    <div class="card"><span class="ic">01 · SYSTEM</span><h4>안전보건관리체계 구축</h4><p>중대재해처벌법 대응을 위한 체계 진단부터 문서·이행 점검까지.</p><ul><li>현황 진단과 개선 계획</li><li>절차서·점검표 정비</li></ul></div>
-    <div class="card"><span class="ic">02 · RISK</span><h4>위험성평가</h4><p>최초·정기·수시 평가를 사업장 공정에 맞춰 함께 진행합니다.</p><ul><li>유해·위험요인 파악</li><li>감소대책과 기록 관리</li></ul></div>
-    <div class="card"><span class="ic">03 · AGENCY</span><h4>안전관리 업무 위탁</h4><p>고용노동부 지정 안전관리전문기관의 안전관리자 위탁.</p><ul><li>안전관리자 위탁</li><li>안전보건관리담당자 위탁</li></ul></div>
-    <div class="card"><span class="ic">04 · PLAN</span><h4>유해위험방지계획서 · 자율안전확인</h4><p>계획서 작성과 신고 업무를 지원합니다.</p><ul><li>유해위험방지계획서</li><li>자율안전확인신고</li></ul></div>
-    <div class="card"><span class="ic">05 · ERGO</span><h4>근골격계 유해요인조사</h4><p>반복·중량물 작업의 부담요인을 조사하고 개선안을 제시합니다.</p><ul><li>유해요인 기본조사</li><li>개선 우선순위</li></ul></div>
-    <div class="card"><span class="ic">06 · EDU</span><h4>안전보건교육</h4><p>근로자안전보건교육기관의 관리감독자·근로자 교육.</p><ul><li>관리감독자 교육</li><li>교육 컨설팅</li></ul></div>
+    <a class="card" href="/service/safety-system.html"><span class="ic">01 · SYSTEM</span><h4>안전보건관리체계 구축</h4><p>중대재해처벌법 대응을 위한 체계 진단부터 문서·이행 점검까지.</p><ul><li>현황 진단과 개선 계획</li><li>절차서·점검표 정비</li></ul><span class="more">자세히 보기 →</span></a>
+    <a class="card" href="/service/risk-assessment.html"><span class="ic">02 · RISK</span><h4>위험성평가</h4><p>최초·정기·수시 평가를 사업장 공정에 맞춰 함께 진행합니다.</p><ul><li>유해·위험요인 파악</li><li>감소대책과 기록 관리</li></ul><span class="more">자세히 보기 →</span></a>
+    <a class="card" href="/service/safety-agency.html"><span class="ic">03 · AGENCY</span><h4>안전관리 업무 위탁</h4><p>고용노동부 지정 안전관리전문기관의 안전관리자 위탁.</p><ul><li>안전관리자 위탁</li><li>안전보건관리담당자 위탁</li></ul><span class="more">자세히 보기 →</span></a>
+    <a class="card" href="https://naver.me/GIIegHdb" target="_blank" rel="noopener"><span class="ic">04 · PLAN</span><h4>유해위험방지계획서 · 자율안전확인</h4><p>계획서 작성과 신고 업무를 지원합니다.</p><ul><li>유해위험방지계획서</li><li>자율안전확인신고</li></ul><span class="more">상담 신청 →</span></a>
+    <a class="card" href="https://naver.me/GIIegHdb" target="_blank" rel="noopener"><span class="ic">05 · ERGO</span><h4>근골격계 유해요인조사</h4><p>반복·중량물 작업의 부담요인을 조사하고 개선안을 제시합니다.</p><ul><li>유해요인 기본조사</li><li>개선 우선순위</li></ul><span class="more">상담 신청 →</span></a>
+    <a class="card" href="https://naver.me/GIIegHdb" target="_blank" rel="noopener"><span class="ic">06 · EDU</span><h4>안전보건교육</h4><p>근로자안전보건교육기관의 관리감독자·근로자 교육.</p><ul><li>관리감독자 교육</li><li>교육 컨설팅</li></ul><span class="more">상담 신청 →</span></a>
   </div>
 </section>
 
