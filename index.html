@@ -60,6 +60,14 @@ nav a:hover{background:var(--bg)}
 .hero h1{font-size:clamp(26px,3.6vw,40px);line-height:1.25;letter-spacing:-.03em}
 .hero h1 em{font-style:normal;color:var(--g700);background:linear-gradient(transparent 62%,var(--lime2) 62%)}
 .hero p.lead{color:var(--ink2);margin-top:10px;max-width:640px}
+.hero-top{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+.hero-img{width:100%;height:auto;display:block;mix-blend-mode:multiply}
+@media(max-width:900px){.hero-top{grid-template-columns:1fr;gap:12px}.hero-img{max-width:480px;margin:0 auto}}
+.prof-in{display:grid;grid-template-columns:1fr 240px;gap:20px;align-items:center}
+.prof-img{width:100%;height:auto;display:block}
+@media(max-width:760px){.prof-in{grid-template-columns:1fr}.prof-img{max-width:300px;margin:0 auto;order:-1}}
+.svh{display:flex;align-items:center;gap:12px}
+.svi{width:64px;height:64px;flex:0 0 64px}
 .grid{display:grid;gap:16px}
 .dash{grid-template-columns:1.35fr 1fr;margin-top:28px}
 @media(max-width:900px){.dash{grid-template-columns:1fr}}
@@ -204,8 +212,10 @@ footer b{color:var(--ink2)}
 
 <!-- HERO / DASHBOARD -->
 <div class="hero" id="check">
+  <div class="hero-top"><div>
   <h1>우리 사업장 <em>안전보건관리체계</em>,<br>지금 몇 % 갖춰져 있을까요?</h1>
   <p class="lead">고용노동부가 제시한 안전보건관리체계 7대 핵심요소로 1분 만에 점검해 보세요. 항목마다 실시·미실시를 고르면 진단 결과가 바로 계산됩니다.</p>
+  </div><img class="hero-img" src="/assets/img/hero.webp" width="1200" height="849" alt="제조 공장과 건설 현장을 안전 방패와 점검표로 함께 관리하는 컨설턴트 일러스트" fetchpriority="high"></div>
 
   <div class="grid dash">
     <div class="card">
@@ -244,9 +254,11 @@ footer b{color:var(--ink2)}
 <!-- PROFILE -->
 <section id="about">
   <div class="card prof">
+<div class="prof-in"><div>
     <div class="pf"><div class="av">박</div><div><b>컨설턴트 박준서</b><span>한국산업안전보건기술원 · 코리아세이프티(주) · ISO 45001 심사원</span></div></div>
     <div class="kp"><div><em>300+</em><span>위험성평가 수행 사업장</span></div><div><em>9년</em><span>현장·컨설팅 경력</span></div><div><em>건설·병원·제조</em><span>직접 겪어 본 현장</span></div></div>
     <p>건설현장에서 안전 실무를 시작해 병원을 거쳐, 2020년부터 고용노동부 지정 안전관리전문기관에서 제조업 사업장의 위험성평가와 안전보건관리체계 구축을 돕고 있습니다. 현장을 직접 겪어 본 사람의 눈으로, 서류가 아니라 현장이 바뀌는 평가를 합니다.</p>
+</div><img class="prof-img" src="/assets/img/consultant.webp" width="800" height="667" alt="컨설턴트가 돋보기로 기계 주변 위험요인을 살피고 현장 관리자가 함께 기록하는 일러스트" loading="lazy"></div>
   </div>
 </section>
 
@@ -254,12 +266,12 @@ footer b{color:var(--ink2)}
 <section id="service">
   <div class="sh"><h2>무엇을 도와드리나요</h2></div>
   <div class="grid svc">
-    <a class="card" href="/service/safety-system.html"><span class="ic">01 · SYSTEM</span><h4>안전보건관리체계 구축</h4><p>중대재해처벌법 대응을 위한 체계 진단부터 문서·이행 점검까지.</p><ul><li>현황 진단과 개선 계획</li><li>절차서·점검표 정비</li></ul><span class="more">자세히 보기 →</span></a>
-    <a class="card" href="/service/risk-assessment.html"><span class="ic">02 · RISK</span><h4>위험성평가</h4><p>최초·정기·수시 평가를 사업장 공정에 맞춰 함께 진행합니다.</p><ul><li>유해·위험요인 파악</li><li>감소대책과 기록 관리</li></ul><span class="more">자세히 보기 →</span></a>
-    <a class="card" href="/service/safety-agency.html"><span class="ic">03 · AGENCY</span><h4>안전관리 업무 위탁</h4><p>고용노동부 지정 안전관리전문기관의 안전관리자 위탁.</p><ul><li>안전관리자 위탁</li><li>안전보건관리담당자 위탁</li></ul><span class="more">자세히 보기 →</span></a>
-    <a class="card" href="/service/hazard-prevention-plan.html"><span class="ic">04 · PLAN</span><h4>유해위험방지계획서 · 자율안전확인</h4><p>계획서 작성과 신고 업무를 지원합니다.</p><ul><li>유해위험방지계획서</li><li>자율안전확인신고</li></ul><span class="more">자세히 보기 →</span></a>
-    <a class="card" href="/service/ergonomics.html"><span class="ic">05 · ERGO</span><h4>근골격계 유해요인조사</h4><p>반복·중량물 작업의 부담요인을 조사하고 개선안을 제시합니다.</p><ul><li>유해요인 기본조사</li><li>개선 우선순위</li></ul><span class="more">자세히 보기 →</span></a>
-    <a class="card" href="/service/safety-education.html"><span class="ic">06 · EDU</span><h4>안전보건교육</h4><p>근로자안전보건교육기관의 관리감독자·근로자 교육.</p><ul><li>관리감독자 교육</li><li>교육 컨설팅</li></ul><span class="more">자세히 보기 →</span></a>
+    <a class="card" href="/service/safety-system.html"><div class="svh"><img class="svi" src="/assets/img/svc-system.webp" width="64" height="64" alt="안전보건관리체계 아이콘" loading="lazy"><span class="ic">01 · SYSTEM</span></div><h4>안전보건관리체계 구축</h4><p>중대재해처벌법 대응을 위한 체계 진단부터 문서·이행 점검까지.</p><ul><li>현황 진단과 개선 계획</li><li>절차서·점검표 정비</li></ul><span class="more">자세히 보기 →</span></a>
+    <a class="card" href="/service/risk-assessment.html"><div class="svh"><img class="svi" src="/assets/img/svc-risk.webp" width="64" height="64" alt="위험성평가 아이콘" loading="lazy"><span class="ic">02 · RISK</span></div><h4>위험성평가</h4><p>최초·정기·수시 평가를 사업장 공정에 맞춰 함께 진행합니다.</p><ul><li>유해·위험요인 파악</li><li>감소대책과 기록 관리</li></ul><span class="more">자세히 보기 →</span></a>
+    <a class="card" href="/service/safety-agency.html"><div class="svh"><img class="svi" src="/assets/img/svc-agency.webp" width="64" height="64" alt="안전관리 위탁 아이콘" loading="lazy"><span class="ic">03 · AGENCY</span></div><h4>안전관리 업무 위탁</h4><p>고용노동부 지정 안전관리전문기관의 안전관리자 위탁.</p><ul><li>안전관리자 위탁</li><li>안전보건관리담당자 위탁</li></ul><span class="more">자세히 보기 →</span></a>
+    <a class="card" href="/service/hazard-prevention-plan.html"><div class="svh"><img class="svi" src="/assets/img/svc-plan.webp" width="64" height="64" alt="유해위험방지계획서 아이콘" loading="lazy"><span class="ic">04 · PLAN</span></div><h4>유해위험방지계획서 · 자율안전확인</h4><p>계획서 작성과 신고 업무를 지원합니다.</p><ul><li>유해위험방지계획서</li><li>자율안전확인신고</li></ul><span class="more">자세히 보기 →</span></a>
+    <a class="card" href="/service/ergonomics.html"><div class="svh"><img class="svi" src="/assets/img/svc-ergo.webp" width="64" height="64" alt="근골격계 유해요인조사 아이콘" loading="lazy"><span class="ic">05 · ERGO</span></div><h4>근골격계 유해요인조사</h4><p>반복·중량물 작업의 부담요인을 조사하고 개선안을 제시합니다.</p><ul><li>유해요인 기본조사</li><li>개선 우선순위</li></ul><span class="more">자세히 보기 →</span></a>
+    <a class="card" href="/service/safety-education.html"><div class="svh"><img class="svi" src="/assets/img/svc-edu.webp" width="64" height="64" alt="안전보건교육 아이콘" loading="lazy"><span class="ic">06 · EDU</span></div><h4>안전보건교육</h4><p>근로자안전보건교육기관의 관리감독자·근로자 교육.</p><ul><li>관리감독자 교육</li><li>교육 컨설팅</li></ul><span class="more">자세히 보기 →</span></a>
   </div>
 </section>
 
