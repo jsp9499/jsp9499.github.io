@@ -68,6 +68,18 @@ nav a:hover{background:var(--bg)}
 @media(max-width:760px){.prof-in{grid-template-columns:1fr}.prof-img{max-width:300px;margin:0 auto;order:-1}}
 .svh{display:flex;align-items:center;gap:12px}
 .svi{width:64px;height:64px;flex:0 0 64px}
+.cases{grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.cases{grid-template-columns:1fr}}
+.case{display:flex;flex-direction:column;gap:10px;transition:.15s}
+.case:hover{border-color:var(--g500);transform:translateY(-2px)}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.ba figure{margin:0;position:relative}
+.ba img{width:100%;height:150px;object-fit:cover;border-radius:10px;display:block;background:var(--bg)}
+.ba figcaption{position:absolute;left:6px;top:6px;font-size:11px;font-weight:700;color:#fff;background:var(--bad);padding:2px 7px;border-radius:6px}
+.ba figure+figure figcaption{background:var(--g700)}
+.case h4{font-size:15px;line-height:1.45}
+.case .sub b{color:var(--g700)}
+.more{display:flex;justify-content:center;margin-top:16px}
 .grid{display:grid;gap:16px}
 .dash{grid-template-columns:1.35fr 1fr;margin-top:28px}
 @media(max-width:900px){.dash{grid-template-columns:1fr}}
@@ -201,7 +213,7 @@ footer b{color:var(--ink2)}
   <nav>
     <a href="#check">자가진단</a>
     <a href="#service">서비스</a>
-    <a href="#posts">자료실</a>
+    <a href="#cases">개선 사례</a><a href="#posts">자료실</a>
     <a href="#orgs">함께하는 기관</a>
     <a href="#links">도움되는 사이트</a>
     <a class="cta" href="#consult">상담 신청</a>
@@ -273,6 +285,18 @@ footer b{color:var(--ink2)}
     <a class="card" href="/service/ergonomics.html"><div class="svh"><img class="svi" src="/assets/img/svc-ergo.webp" width="64" height="64" alt="근골격계 유해요인조사 아이콘" loading="lazy"><span class="ic">05 · ERGO</span></div><h4>근골격계 유해요인조사</h4><p>반복·중량물 작업의 부담요인을 조사하고 개선안을 제시합니다.</p><ul><li>유해요인 기본조사</li><li>개선 우선순위</li></ul><span class="more">자세히 보기 →</span></a>
     <a class="card" href="/service/safety-education.html"><div class="svh"><img class="svi" src="/assets/img/svc-edu.webp" width="64" height="64" alt="안전보건교육 아이콘" loading="lazy"><span class="ic">06 · EDU</span></div><h4>안전보건교육</h4><p>근로자안전보건교육기관의 관리감독자·근로자 교육.</p><ul><li>관리감독자 교육</li><li>교육 컨설팅</li></ul><span class="more">자세히 보기 →</span></a>
   </div>
+</section>
+
+<!-- CASES -->
+<section id="cases">
+  <div class="sh"><h2>현장에서 이렇게 바꿨습니다</h2></div>
+  <p class="sub" style="margin:-8px 0 16px">제조 현장 점검에서 찾은 위험과 개선 전·후 사진입니다. 사업장 이름과 지역은 밝히지 않습니다.</p>
+  <div class="grid cases">
+    <a class="card case" href="/case/c-219.html"><div class="ba"><figure><img src="/case/img/c-219-before.jpg" alt="핸드그라인더 안전덮개를 떼고 쓰면 어떻게 될까 개선 전 사진" loading="lazy"><figcaption>개선 전</figcaption></figure><figure><img src="/case/img/c-219-after.jpg" alt="핸드그라인더 안전덮개를 떼고 쓰면 어떻게 될까 개선 후 사진" loading="lazy"><figcaption>개선 후</figcaption></figure></div><h4>핸드그라인더 안전덮개를 떼고 쓰면 어떻게 될까?</h4><p class="sub">휴대용 그라인더 · 위험성 상→하</p></a>
+    <a class="card case" href="/case/c-215.html"><div class="ba"><figure><img src="/case/img/c-215-before.jpg" alt="분전반 앞에 자재를 쌓아 두면 어떤 위험이 있을까 개선 전 사진" loading="lazy"><figcaption>개선 전</figcaption></figure><figure><img src="/case/img/c-215-after.jpg" alt="분전반 앞에 자재를 쌓아 두면 어떤 위험이 있을까 개선 후 사진" loading="lazy"><figcaption>개선 후</figcaption></figure></div><h4>분전반 앞에 자재를 쌓아 두면 어떤 위험이 있을까?</h4><p class="sub">분전반 · 위험성 상→하</p></a>
+    <a class="card case" href="/case/c-220.html"><div class="ba"><figure><img src="/case/img/c-220-before.jpg" alt="선반 척에 칩 가드가 없으면 무엇이 위험할까 개선 전 사진" loading="lazy"><figcaption>개선 전</figcaption></figure><figure><img src="/case/img/c-220-after.jpg" alt="선반 척에 칩 가드가 없으면 무엇이 위험할까 개선 후 사진" loading="lazy"><figcaption>개선 후</figcaption></figure></div><h4>선반 척에 칩 가드가 없으면 무엇이 위험할까?</h4><p class="sub">선반 · 위험성 상→하</p></a>
+  </div>
+  <div class="more"><a class="btn" style="border:1px solid var(--g700);color:var(--g700);padding:12px 24px;background:#fff" href="/case/">개선 사례 18건 모두 보기 →</a></div>
 </section>
 
 <!-- POSTS -->
