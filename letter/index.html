@@ -148,6 +148,8 @@ ul.cl li::before{content:"☐";position:absolute;left:11px;top:7px;color:var(--g
 .pager{display:flex;justify-content:space-between;gap:10px;margin-top:16px;flex-wrap:wrap}
 .pager a{border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 14px;text-decoration:none;font-weight:700;color:var(--g700)}
 .hl{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;margin-top:12px}
+.hl-dl{display:block;text-align:right;font-size:14px;font-weight:700;color:var(--g700);margin-top:6px;text-decoration:none}
+.hl-dl:hover{text-decoration:underline}
 .hl:hover{border-color:var(--g500)}
 .hl img{width:120px;height:105px;object-fit:cover;object-position:top;border-radius:8px;border:1px solid var(--line)}
 .hl .v{font-family:var(--mono);font-size:12px;color:var(--g500);font-weight:700}
@@ -164,9 +166,12 @@ ul.cl li::before{content:"☐";position:absolute;left:11px;top:7px;color:var(--g
 <section class="hero"><span class="code">ISSUE LETTER · 전체 공개</span>
 <h1>산업안전 이슈레터<br>지난 호 모두 보기</h1>
 <p>매주 법령·감독·재해 동향과 우리 사업장 체크리스트를 정리합니다. 지금은 구독 신청 없이 누구나 볼 수 있습니다.</p></section>
-<a class="hl" href="/letter/vol03.html"><img src="/letter/vol03.jpg" alt="안전보건 이슈레터 Vol.03 첫 쪽" loading="lazy"><div><span class="v">VOL.03 · 2026년 11월 3주</span><span class="new">NEW</span><b>한파 대책기간 시작 — 옥외작업 집중점검 200곳 → 600곳</b><span>위험성평가 지침 확인 · 식품 제조업 합동감독 92건 · 인양물 낙하 사망 3건 · 체크리스트 8</span></div></a>
-<a class="hl" href="/letter/sample.html#vol02"><img src="/letter/sample-vol02.jpg" alt="안전보건 이슈레터 Vol.02 첫 쪽" loading="lazy"><div><span class="v">VOL.02 · 2026년 11월 2주</span><b>같은 중대재해 되풀이하면 '특별감독급' — 지적사항 개선도 불시 재확인</b><span>개정 산안법 항목별 시행일 · 정비·고소 작업 사고 · 연말 감독 대비 체크리스트 8</span></div></a>
-<a class="hl" href="/letter/sample.html#vol01"><img src="/letter/sample-vol01.jpg" alt="안전보건 이슈레터 Vol.01 첫 쪽" loading="lazy"><div><span class="v">VOL.01 · 2026년 11월 1주</span><b>위험성평가 지침 전부개정 — 2027년부터 "안 하면, 안 알리면" 과태료</b><span>과태료 금액·적용 시기 · 함께 바뀐 것</span></div></a>
+<a class="hl" href="/letter/vol03.html"><img src="/letter/vol03.jpg" alt="안전보건 이슈레터 Vol.03 첫 쪽" loading="lazy"><div><span class="v">VOL.03 · 2026년 11월 3주</span><span class="new">NEW</span><b>한파 대책기간 시작 — 옥외작업 집중점검 200곳 → 600곳</b><span>위험성평가 지침 확인 · 식품 제조업 합동감독 92건 · 인양물 낙하 사망 3건 · 체크리스트 8</span></div></a><a class="hl-dl" href="/letter/pdf/safety-issue-vol03.pdf" download>📥 Vol.03 전문 PDF 내려받기 (1.5MB)</a>
+
+<a class="hl" href="/letter/sample.html#vol02"><img src="/letter/sample-vol02.jpg" alt="안전보건 이슈레터 Vol.02 첫 쪽" loading="lazy"><div><span class="v">VOL.02 · 2026년 11월 2주</span><b>같은 중대재해 되풀이하면 '특별감독급' — 지적사항 개선도 불시 재확인</b><span>개정 산안법 항목별 시행일 · 정비·고소 작업 사고 · 연말 감독 대비 체크리스트 8</span></div></a><a class="hl-dl" href="/letter/pdf/safety-issue-vol02.pdf" download>📥 Vol.02 전문 PDF 내려받기 (1.1MB)</a>
+
+<a class="hl" href="/letter/sample.html#vol01"><img src="/letter/sample-vol01.jpg" alt="안전보건 이슈레터 Vol.01 첫 쪽" loading="lazy"><div><span class="v">VOL.01 · 2026년 11월 1주</span><b>위험성평가 지침 전부개정 — 2027년부터 "안 하면, 안 알리면" 과태료</b><span>과태료 금액·적용 시기 · 함께 바뀐 것</span></div></a><a class="hl-dl" href="/letter/pdf/safety-issue-vol01.pdf" download>📥 Vol.01 전문 PDF 내려받기 (0.6MB)</a>
+
 
 <div class="sub-cta" id="ask"><b>궁금한 점은 질문으로 남겨 주세요</b>이슈레터는 지금 누구나 무료로 볼 수 있습니다. 매주 이 페이지에 새 호를 올립니다.<br>읽다가 우리 사업장은 어떻게 해야 하는지 궁금하면 질문을 남겨 주세요. 영업일 기준으로 답변드립니다.<br><a href="https://naver.me/GIIegHdb" target="_blank" rel="noopener">질문 남기기</a> <a href="tel:0502-1944-9499" style="background:transparent;border:1px solid #3c6b58;color:#e6f1ec">☎ 0502-1944-9499</a></div>
 <p class="small">이 레터는 일반 정보 제공 목적이며 개별 사안에 대한 법률 의견이 아닙니다. 시행일·세부 기준은 관보·고시 원문을 확인하세요.</p>
