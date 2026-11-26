@@ -213,7 +213,7 @@ footer b{color:var(--ink2)}
 .lt-in{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center}
 @media(max-width:900px){.lt-in{grid-template-columns:1fr}}
 .lt-tag{display:inline-block;font-family:var(--mono);font-size:12px;font-weight:700;color:var(--g700);background:var(--lime2);padding:4px 10px;border-radius:99px}
-.lt h1{font-size:clamp(26px,3.6vw,40px);line-height:1.25;letter-spacing:-.03em;margin-top:12px}
+.lt h1,.lt .lt-h{font-size:clamp(26px,3.6vw,40px);line-height:1.25;letter-spacing:-.03em;margin-top:12px}
 .lt h1 em{font-style:normal;color:var(--g700);background:linear-gradient(transparent 62%,var(--lime2) 62%)}
 .lt .lead{color:var(--ink2);margin-top:10px;max-width:620px}
 .lt-new{display:block;margin-top:18px;background:var(--g900);color:#fff;border-radius:16px;padding:18px 20px;transition:.15s}
@@ -245,6 +245,17 @@ footer b{color:var(--ink2)}
 .dlg-h .x{font:inherit;font-size:18px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:#fff;cursor:pointer;flex:0 0 38px}
 .chkfab{position:fixed;right:18px;bottom:18px;z-index:20;background:var(--g700);color:#fff;font-weight:700;font-size:14px;padding:12px 16px;border-radius:99px;box-shadow:0 6px 20px rgba(15,59,44,.3)}
 .chkfab:hover{background:var(--g900)}
+.hero{background:var(--g900);color:#fff;border-radius:20px;padding:40px 36px;margin:24px 0 8px}
+.hero-tag{display:inline-block;font-size:13px;font-weight:700;color:var(--lime);letter-spacing:-.01em}
+.hero h1{font-size:clamp(26px,3.8vw,42px);line-height:1.25;letter-spacing:-.03em;margin:12px 0 14px;color:#fff}
+.hero h1 em{font-style:normal;color:var(--lime);background:none;padding:0}
+.hero-lead{color:#d5e6dd;font-size:17px;max-width:720px;margin:0 0 18px}
+.hero-badges{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-wrap:wrap;gap:8px}
+.hero-badges li{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:6px 12px;font-size:13px;color:#e6f1ec}
+.hero-badges b{color:var(--lime)}
+.hero-btns{display:flex;flex-wrap:wrap;gap:10px}
+.hero-btns .btn.s{background:transparent;border:1px solid #6f9b87;color:#e6f1ec}
+@media(max-width:620px){.hero{padding:28px 20px;border-radius:14px}.hero-lead{font-size:15px}.hero-btns .btn{flex:1 1 100%}}
 </style>
 </head>
 <body>
@@ -257,24 +268,41 @@ footer b{color:var(--ink2)}
 <header><div class="wrap">
   <a class="brand" href="/"><span class="mark">박</span><span>산업안전 법령·위험성평가 한눈에<small>by 컨설턴트 박준서</small></span></a>
   <nav>
-    <a href="#letter">이슈레터</a>
-    <a href="#cases">개선 사례</a>
     <a href="#service">서비스</a>
-    <a href="#column">칼럼</a>
-    <a href="#posts">자료실</a>
+    <a href="#cases">개선 사례</a>
+    <a href="#letter">이슈레터</a>
+    <a href="#posts">자료·칼럼</a>
     <a href="#check" data-open-check>자가진단</a>
-    <a class="cta" href="#consult">질문하기</a>
+    <a class="cta" href="#about">소개·상담</a>
   </nav>
 </div></header>
 
 <main class="wrap">
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <span class="hero-tag">제조업 사업주 · 안전담당자를 위한 안전보건 컨설팅</span>
+  <h1>위험성평가·중대재해 대응,<br><em>서류가 아니라 현장이 바뀌게</em> 돕습니다</h1>
+  <p class="hero-lead">2027년 위험성평가 과태료 시행, 늘어나는 감독. 우리 사업장이 무엇부터 해야 할지 현장을 직접 보고 함께 정리합니다.</p>
+  <ul class="hero-badges">
+    <li>고용노동부 지정 안전관리전문기관 <b>2025·2026 S등급</b></li>
+    <li>근로자안전보건교육기관</li>
+    <li>안전보건공단 안전보건관리체계 컨설팅기관</li>
+    <li>위험성평가 <b>300+</b> 사업장 수행</li>
+  </ul>
+  <div class="hero-btns">
+    <a class="btn p" href="https://naver.me/GIIegHdb" target="_blank" rel="noopener">무료로 질문 남기기</a>
+    <a class="btn s" href="#service">서비스 살펴보기</a>
+    <a class="btn s" href="tel:0502-1944-9499">☎ 0502-1944-9499</a>
+  </div>
+</section>
 
 <!-- ISSUE LETTER -->
 <section class="lt" id="letter"><span id="subscribe"></span><span id="check" class="anc"></span>
   <div class="lt-in">
     <div>
       <span class="lt-tag">WEEKLY · 산업안전 이슈레터 · 누구나 무료 공개</span>
-      <h1>바뀌는 법, 늘어나는 감독,<br><em>우리 사업장은 뭘 해야 할까요?</em></h1>
+      <h2 class="lt-h">바뀌는 법, 늘어나는 감독,<br><em>우리 사업장은 뭘 해야 할까요?</em></h2>
       <p class="lead">매주 법령·감독·재해 동향을 정리하고, 사업장에서 바로 확인할 체크리스트까지 담습니다. 지금은 신청 없이 누구나 전체를 볼 수 있습니다.</p>
       <a class="lt-new" href="/letter/vol03.html"><span class="v">최신 호 · VOL.03 · 2026년 11월 3주</span><b>한파 대책기간 시작 — 옥외작업 집중점검 200곳 → 600곳</b>
         <span class="chips"><i>위험성평가 지침 확인</i><i>식품 제조업 감독 92건 적발</i><i>인양물 낙하 사망 3건</i><i>체크리스트 8</i></span></a>
@@ -305,17 +333,6 @@ footer b{color:var(--ink2)}
   <div class="more"><a class="btn" style="border:1px solid var(--g700);color:var(--g700);padding:12px 24px;background:#fff" href="/case/">개선 사례 17건 모두 보기 →</a></div>
 </section>
 
-<!-- PROFILE -->
-<section id="about">
-  <div class="card prof">
-<div class="prof-in"><div>
-    <div class="pf"><div class="av">박</div><div><b>컨설턴트 박준서</b><span>한국산업안전보건기술원 · 코리아세이프티(주)<br>산업안전기사 · 인간공학기사 · 산업위생관리기사 · ISO 45001 심사원</span></div></div>
-    <div class="kp"><div><em>300+</em><span>위험성평가 수행 사업장</span></div><div><em>9년</em><span>현장·컨설팅 경력</span></div><div><em>건설·병원·제조</em><span>직접 겪어 본 현장</span></div></div>
-    <p>건설현장에서 안전 실무를 시작해 병원을 거쳐, 2020년부터 고용노동부 지정 안전관리전문기관에서 제조업 사업장의 위험성평가와 안전보건관리체계 구축을 돕고 있습니다. 현장을 직접 겪어 본 사람의 눈으로, 서류가 아니라 현장이 바뀌는 평가를 합니다.</p>
-</div><img class="prof-img" src="/assets/img/consultant.webp" width="800" height="667" alt="컨설턴트가 돋보기로 기계 주변 위험요인을 살피고 현장 관리자가 함께 기록하는 일러스트" loading="lazy"></div>
-  </div>
-</section>
-
 <!-- SERVICES -->
 <section id="service">
   <div class="sh"><h2>무엇을 도와드리나요</h2></div>
@@ -329,31 +346,14 @@ footer b{color:var(--ink2)}
   </div>
 </section>
 
-<!-- COLUMNS -->
-<section id="column">
-  <div class="sh"><h2>컨설턴트 칼럼</h2></div>
-  <p class="sub" style="margin:-8px 0 16px">법령 해설이 아니라, 현장을 직접 다니며 느낀 것을 씁니다.</p>
-  <div class="grid cols">
-    <a class="card colc" href="/industry/manufacturing.html"><img src="/assets/img/consultant.webp" alt="" loading="lazy"><div><h4>제조업 안전관리, 현장에서 가장 자주 지적하는 위험 4가지는?</h4><p>사다리 아웃트리거, 기계 말림 덮개, 지게차 지정 운전원, 고소작업 보호구. 그리고 사업주가 가장 많이 놓치는 것 — 현장과의 소통.</p></div></a>
-    <a class="card colc" href="/column/risk-assessment-revision.html"><img src="/assets/img/svc-risk.webp" alt="" loading="lazy"><div><h4>위험성평가 과태료 신설, 규제 강화일까 기회일까?</h4><p>과태료 표를 뒤집으면 그대로 우리 사업장의 준비 목록이 됩니다. 기준이 분명해진 지금이 기회입니다.</p></div></a>
-  </div>
-  <div class="more"><a class="btn" style="border:1px solid var(--g700);color:var(--g700);padding:12px 24px;background:#fff" href="/column/">칼럼 모두 보기 →</a></div>
-</section>
-
-<!-- POSTS -->
-<section id="posts">
-  <div class="sh"><h2>자료실 · 최근 글</h2></div>
-  <div class="grid posts">
-    <a class="card post" href="/industry/manufacturing.html"><span class="cat">업종별 안내</span><div><h4>제조업 안전관리, 현장에서 가장 자주 지적하는 위험 4가지는?</h4><p class="sub">사다리 · 기계 말림 · 지게차 · 고소작업 보호구 · 사업주가 놓치는 것</p></div></a>
-    <a class="card post" href="/ref/risk-assessment-fines.html"><span class="cat">법령·과태료</span><div><h4>위험성평가 안 하면 과태료 얼마? 2027년 시행 기준 정리</h4><p class="sub">자료 페이지 + PDF · 10문항 자가점검</p></div></a>
-    <a class="card post" href="/ref/tbm-meeting-log.html"><span class="cat">양식</span><div><h4>TBM 회의록 양식 무료 (2026 위험성평가 개정 반영)</h4><p class="sub">A4 1쪽 인쇄용 PDF</p></div></a>
-    <a class="card post" href="/ref/safety-health-manager.html"><span class="cat">선임·위탁</span><div><h4>안전보건관리담당자 선임 대상·자격·위탁·과태료 정리</h4><p class="sub">자료 페이지 + PDF · 사업주 체크리스트</p></div></a>
-    <a class="card post" href="/ref/safety-system-docs.html"><span class="cat">서류 양식</span><div><h4>안전보건관리체계 기본 서류철 2026 (양식 13종)</h4><p class="sub">자료 페이지 + PDF 24쪽 · 법적 근거·보존기간</p></div></a>
-    <a class="card post" href="/ref/risk-assessment-training.html"><span class="cat">교육자료</span><div><h4>위험성평가 교육자료 무료 — 근로자에게 무엇을 알려야 할까? (2026 개정 반영)</h4><p class="sub">자료 페이지 + PDF 23장 · 정기교육·TBM에 바로 사용</p></div></a>
-    <a class="card post" href="/ref/supervisor-forms.html"><span class="cat">서류 양식</span><div><h4>관리감독자 지정서·주간 작업 전 점검표·반기 평가표 양식 (2026)</h4><p class="sub">자료 페이지 + PDF · 지정 현황·교육 기록부 포함</p></div></a>
-    <a class="card post" href="/ref/risk-assessment-consulting.html"><span class="cat">서비스 소개</span><div><h4>위험성평가 컨설팅, 2027년 과태료·인정심사에 어떻게 대비할까?</h4><p class="sub">자료 페이지 + PDF 12장 · 과태료 대응표·인정심사 배점</p></div></a>
-    <a class="card post" href="/ref/cold-stress-checklist.html"><span class="cat">점검표</span><div><h4>한파 집중점검, 우리 사업장은 무엇을 준비해야 할까? (2026 겨울)</h4><p class="sub">자료 페이지 + PDF · 한랭질환 예방·휴게시설 점검표</p></div></a>
-    <a class="card post" href="/case/"><span class="cat">개선 사례</span><div><h4>개선 전·후 사례 17건 (사진·법령·지속 관리)</h4><p class="sub">연삭기·드릴·지게차·분전반·MSDS 등 · 계속 추가</p></div></a>
+<!-- PROFILE -->
+<section id="about">
+  <div class="card prof">
+<div class="prof-in"><div>
+    <div class="pf"><div class="av">박</div><div><b>컨설턴트 박준서</b><span>한국산업안전보건기술원 · 코리아세이프티(주)<br>산업안전기사 · 인간공학기사 · 산업위생관리기사 · ISO 45001 심사원</span></div></div>
+    <div class="kp"><div><em>300+</em><span>위험성평가 수행 사업장</span></div><div><em>9년</em><span>현장·컨설팅 경력</span></div><div><em>건설·병원·제조</em><span>직접 겪어 본 현장</span></div></div>
+    <p>건설현장에서 안전 실무를 시작해 병원을 거쳐, 2020년부터 고용노동부 지정 안전관리전문기관에서 제조업 사업장의 위험성평가와 안전보건관리체계 구축을 돕고 있습니다. 현장을 직접 겪어 본 사람의 눈으로, 서류가 아니라 현장이 바뀌는 평가를 합니다.</p>
+</div><img class="prof-img" src="/assets/img/consultant.webp" width="800" height="667" alt="컨설턴트가 돋보기로 기계 주변 위험요인을 살피고 현장 관리자가 함께 기록하는 일러스트" loading="lazy"></div>
   </div>
 </section>
 
@@ -371,6 +371,34 @@ footer b{color:var(--ink2)}
       <div class="badges"><span>고용노동부 지정 안전관리전문기관</span><span>안전보건공단 안전보건관리체계 컨설팅기관</span></div>
       <dl><dt>전화</dt><dd>031-225-2280</dd><dt>팩스</dt><dd>031-225-2281</dd><dt>주소</dt><dd class="k">경기도 수원시 권선구 동수원로146번길 233-15, 2층</dd></dl>
     </div>
+  </div>
+</section>
+
+<!-- COLUMNS -->
+<section id="column">
+  <div class="sh"><h2>컨설턴트 칼럼</h2></div>
+  <p class="sub" style="margin:-8px 0 16px">법령 해설이 아니라, 현장을 직접 다니며 느낀 것을 씁니다.</p>
+  <div class="grid cols">
+    <a class="card colc" href="/industry/manufacturing.html"><img src="/assets/img/consultant.webp" alt="" loading="lazy"><div><h4>제조업 안전관리, 현장에서 가장 자주 지적하는 위험 4가지는?</h4><p>사다리 아웃트리거, 기계 말림 덮개, 지게차 지정 운전원, 고소작업 보호구. 그리고 사업주가 가장 많이 놓치는 것 — 현장과의 소통.</p></div></a>
+    <a class="card colc" href="/column/risk-assessment-revision.html"><img src="/assets/img/svc-risk.webp" alt="" loading="lazy"><div><h4>위험성평가 과태료 신설, 규제 강화일까 기회일까?</h4><p>과태료 표를 뒤집으면 그대로 우리 사업장의 준비 목록이 됩니다. 기준이 분명해진 지금이 기회입니다.</p></div></a>
+  </div>
+  <div class="more"><a class="btn" style="border:1px solid var(--g700);color:var(--g700);padding:12px 24px;background:#fff" href="/column/">칼럼 모두 보기 →</a></div>
+</section>
+
+<!-- POSTS -->
+<section id="posts">
+  <div class="sh"><h2>자료·칼럼 · 최근 글</h2></div>
+  <div class="grid posts">
+    <a class="card post" href="/industry/manufacturing.html"><span class="cat">업종별 안내</span><div><h4>제조업 안전관리, 현장에서 가장 자주 지적하는 위험 4가지는?</h4><p class="sub">사다리 · 기계 말림 · 지게차 · 고소작업 보호구 · 사업주가 놓치는 것</p></div></a>
+    <a class="card post" href="/ref/risk-assessment-fines.html"><span class="cat">법령·과태료</span><div><h4>위험성평가 안 하면 과태료 얼마? 2027년 시행 기준 정리</h4><p class="sub">자료 페이지 + PDF · 10문항 자가점검</p></div></a>
+    <a class="card post" href="/ref/tbm-meeting-log.html"><span class="cat">양식</span><div><h4>TBM 회의록 양식 무료 (2026 위험성평가 개정 반영)</h4><p class="sub">A4 1쪽 인쇄용 PDF</p></div></a>
+    <a class="card post" href="/ref/safety-health-manager.html"><span class="cat">선임·위탁</span><div><h4>안전보건관리담당자 선임 대상·자격·위탁·과태료 정리</h4><p class="sub">자료 페이지 + PDF · 사업주 체크리스트</p></div></a>
+    <a class="card post" href="/ref/safety-system-docs.html"><span class="cat">서류 양식</span><div><h4>안전보건관리체계 기본 서류철 2026 (양식 13종)</h4><p class="sub">자료 페이지 + PDF 24쪽 · 법적 근거·보존기간</p></div></a>
+    <a class="card post" href="/ref/risk-assessment-training.html"><span class="cat">교육자료</span><div><h4>위험성평가 교육자료 무료 — 근로자에게 무엇을 알려야 할까? (2026 개정 반영)</h4><p class="sub">자료 페이지 + PDF 23장 · 정기교육·TBM에 바로 사용</p></div></a>
+    <a class="card post" href="/ref/supervisor-forms.html"><span class="cat">서류 양식</span><div><h4>관리감독자 지정서·주간 작업 전 점검표·반기 평가표 양식 (2026)</h4><p class="sub">자료 페이지 + PDF · 지정 현황·교육 기록부 포함</p></div></a>
+    <a class="card post" href="/ref/risk-assessment-consulting.html"><span class="cat">서비스 소개</span><div><h4>위험성평가 컨설팅, 2027년 과태료·인정심사에 어떻게 대비할까?</h4><p class="sub">자료 페이지 + PDF 12장 · 과태료 대응표·인정심사 배점</p></div></a>
+    <a class="card post" href="/ref/cold-stress-checklist.html"><span class="cat">점검표</span><div><h4>한파 집중점검, 우리 사업장은 무엇을 준비해야 할까? (2026 겨울)</h4><p class="sub">자료 페이지 + PDF · 한랭질환 예방·휴게시설 점검표</p></div></a>
+    <a class="card post" href="/case/"><span class="cat">개선 사례</span><div><h4>개선 전·후 사례 17건 (사진·법령·지속 관리)</h4><p class="sub">연삭기·드릴·지게차·분전반·MSDS 등 · 계속 추가</p></div></a>
   </div>
 </section>
 
