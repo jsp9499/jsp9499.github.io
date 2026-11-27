@@ -59,6 +59,28 @@ a{color:inherit}
 .it b{font-size:15px}.it small{display:block;font-size:12px;color:var(--mute)}.it .tag{display:inline-block;font-size:11px;font-weight:700;color:#b45309;background:#fef3c7;border-radius:6px;padding:1px 6px;margin-left:6px}
 .seg{display:flex;border:1px solid var(--line);border-radius:9px;overflow:hidden}.seg button{border:0;background:#fff;padding:7px 10px;font-size:13px;font-family:inherit;cursor:pointer;color:var(--ink2)}
 .seg button+button{border-left:1px solid var(--line)}.seg button.on[data-v=y]{background:var(--g700);color:#fff}.seg button.on[data-v=n]{background:#b91c1c;color:#fff}.seg button.on[data-v=x]{background:#94a3b8;color:#fff}
+.acc{background:#fff;border:1px solid var(--line);border-radius:14px;margin-top:12px;overflow:hidden}
+.acc>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:14px 16px;font-weight:800;font-size:16px}
+.acc>summary::-webkit-details-marker{display:none}
+.acc>summary .no{width:26px;height:26px;border-radius:50%;background:var(--g700);color:#fff;font-size:13px;display:grid;place-items:center;flex:none}
+.acc>summary .prog{margin-left:auto;font-size:13px;font-weight:700;color:var(--mute);background:var(--bg);border-radius:99px;padding:3px 10px}
+.acc>summary .prog.done{background:var(--lime2);color:var(--g700)}
+.acc>summary:after{content:"▾";color:var(--mute);transition:transform .2s}.acc[open]>summary:after{transform:rotate(180deg)}
+.acc .items{padding:0 12px 12px;margin:0}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:6px 0 16px}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;text-align:center}
+.kpi b{display:block;font-size:28px;line-height:1.1}.kpi span{font-size:13px;color:var(--mute)}
+.kpi.y b{color:var(--g700)}.kpi.n b{color:#b91c1c}.kpi.u b{color:#b45309}
+.mapbox{background:#fff;border:1px solid var(--line);border-radius:16px;padding:10px;margin-bottom:16px}
+.mapbox svg{width:100%;height:auto;display:block}.mapbox svg g.node{cursor:pointer}
+.legend{display:flex;gap:14px;justify-content:center;font-size:12px;color:var(--mute);padding:4px 0}.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:4px;vertical-align:-1px}
+.bars{display:grid;gap:10px;margin-bottom:16px}
+.bar{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px;cursor:pointer}
+.bar .t{display:flex;justify-content:space-between;font-size:14px;font-weight:700;margin-bottom:6px}.bar .t span{color:var(--mute);font-weight:600}
+.bar .track{display:flex;height:12px;border-radius:99px;overflow:hidden;background:#eef2f0}
+.bar .track i{display:block;height:100%}.c-y{background:#2a8a68}.c-n{background:#dc2626}.c-u{background:#f59e0b}
+.rgrp{margin-top:14px}.miss li b .tag{display:inline-block;margin:0 0 0 6px;font-size:11px;font-weight:700;color:#b45309;background:#fef3c7;border-radius:6px;padding:1px 6px}.rgrp h3{font-size:16px;margin-bottom:8px;scroll-margin-top:80px}
+@media(max-width:640px){.mapbox{display:none}.kpi b{font-size:22px}}
 .catt{font-size:16px;margin:22px 0 4px;color:var(--g900)}
 .bar2{position:sticky;bottom:12px;margin-top:20px;display:flex;justify-content:center}.bar2 button{background:var(--g700);color:#fff;border:0;border-radius:12px;padding:14px 28px;font-size:16px;font-weight:700;font-family:inherit;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.18)}
 .miss li .act{display:block;margin-top:6px;font-size:13px;font-weight:700}.miss li .act.free{color:var(--g700)}.miss li .act.paid{color:#b45309}
@@ -91,8 +113,12 @@ a{color:inherit}
 <section id="list" hidden></section>
 <div class="bar2" id="bar2" hidden><button id="chk" type="button">결과 보기</button></div>
 <section id="out" class="out" hidden>
-  <h2 id="sum"></h2><p class="score" id="score"></p>
-  <ul id="miss" class="miss"></ul>
+  <h2 id="sum"></h2>
+  <div class="kpis"><div class="kpi y"><b id="ky">0</b><span>갖춤</span></div><div class="kpi n"><b id="kn">0</b><span>없음</span></div><div class="kpi u"><b id="ku">0</b><span>미확인</span></div></div>
+  <div class="mapbox"><svg id="map" viewBox="0 0 760 470" role="img" aria-label="분야별 서류 준비 지도"></svg>
+  <div class="legend"><span><i style="background:#2a8a68"></i>80% 이상</span><span><i style="background:#f59e0b"></i>50~79%</span><span><i style="background:#dc2626"></i>50% 미만</span></div></div>
+  <div class="bars" id="bars"></div>
+  <div id="groups"></div>
 </section>
 <aside class="srcbox"><b>출처·기준일</b> — 2026년 11월 기준, 법제처 국가법령정보센터 원문 확인
 <ul><li><a href="https://www.law.go.kr/법령/산업안전보건법" target="_blank" rel="noopener">산업안전보건법</a> 제164조(서류의 보존) 등 항목별 조문</li>
@@ -105,25 +131,42 @@ a{color:inherit}
 var D={"cat": ["조직·선임", "위험성평가·유해위험요인", "안전보건교육", "작업·현장 관리", "화학물질·보건", "설비·도급", "법규 이행·재해 관리"], "items": [{"id": 28, "c": 0, "n": "안전보건관리책임자 임명장·교육 수료증", "law": "산안법 제15·32조, 시행령 제14조", "ret": "법정 3년(선임 서류, 법 제164조)", "min": "r50", "cond": "제조업 50명 이상(세부 업종) / 100명 이상", "free": null}, {"id": 29, "c": 0, "n": "안전보건관리책임자 반기 업무수행 평가", "law": "중대재해처벌법 시행령 제4조제5호", "ret": "법정 5년(중대재해처벌법 시행령 제13조)", "min": "r50", "cond": "관리책임자 선임 대상", "free": null}, {"id": 3, "c": 0, "n": "관리감독자 지정서·교육이수증", "law": "산안법 제16·29조", "ret": "법정 기간 없음 — 권장 3년", "min": 5, "cond": "", "free": "/ref/supervisor-forms.html"}, {"id": 20, "c": 0, "n": "안전관리 위탁계약서", "law": "산안법 제17조, 시행령 제19조", "ret": "선임 서류 3년(법 제164조)", "min": "r50", "cond": "안전관리자를 위탁한 경우", "free": null}, {"id": 26, "c": 0, "n": "산업안전보건위원회 회의록", "law": "산안법 제24조, 시행령 별표 9", "ret": "법정 2년(법 제164조)", "min": "r50", "cond": "제조업 50명 이상(세부 업종) / 100명 이상", "free": null}, {"id": 27, "c": 0, "n": "안전보건관리규정", "law": "산안법 제25·26조, 시행규칙 별표 2", "ret": "법정 기간 없음 — 게시·비치", "min": 100, "cond": "제조업 100명 이상", "free": null}, {"id": 16, "c": 1, "n": "위험성평가서", "law": "산안법 제36조, 시행규칙 제37조의4", "ret": "법정 3년(시행규칙 제37조의4)", "min": 1, "cond": "", "free": null}, {"id": 25, "c": 1, "n": "반기 유해·위험요인 확인·개선 점검", "law": "중대재해처벌법 시행령 제4조제3호", "ret": "법정 5년(중대재해처벌법 시행령 제13조)", "min": 5, "cond": "", "free": null}, {"id": 21, "c": 1, "n": "기계설비 목록·유해요인 분석", "law": "산안법 제36조, 위험성평가 지침", "ret": "평가 결과는 3년(위험성평가서와 같이)", "min": 1, "cond": "", "free": null}, {"id": 15, "c": 1, "n": "근골격계 유해요인조사(3년마다)", "law": "안전보건규칙 제657·658조", "ret": "법정 기간 없음 — 권장 3년(조사 주기 3년)", "min": 1, "cond": "근골격계부담작업이 있는 경우", "free": null}, {"id": 7, "c": 2, "n": "정기 안전보건교육 기록", "law": "산안법 제29조, 시행규칙 별표 4", "ret": "법정 기간 없음 — 권장 3년", "min": 5, "cond": "", "free": null}, {"id": 8, "c": 2, "n": "채용 시 교육 기록", "law": "산안법 제29조, 시행규칙 별표 4", "ret": "법정 기간 없음 — 권장 3년", "min": 5, "cond": "", "free": null}, {"id": 9, "c": 2, "n": "특별교육 기록", "law": "산안법 제29조제3항, 시행규칙 별표 5", "ret": "법정 기간 없음 — 권장 3년", "min": 1, "cond": "유해·위험 작업(별표 5)이 있는 경우", "free": null}, {"id": 11, "c": 2, "n": "MSDS 교육 기록", "law": "산안법 제114조, 시행규칙 제169조", "ret": "법정 기간 없음 — 권장 3년", "min": 1, "cond": "MSDS 대상물질을 취급하는 경우", "free": null}, {"id": 17, "c": 3, "n": "지게차 작업계획서", "law": "안전보건규칙 제38조", "ret": "법정 기간 없음 — 권장 3년", "min": 1, "cond": "지게차를 사용하는 경우", "free": "/ref/safety-system-docs.html"}, {"id": 18, "c": 3, "n": "중량물 취급 작업계획서", "law": "안전보건규칙 제38조", "ret": "법정 기간 없음 — 권장 3년", "min": 1, "cond": "중량물 취급 작업이 있는 경우", "free": "/ref/safety-system-docs.html"}, {"id": 4, "c": 3, "n": "관리감독자 직무·점검일지", "law": "산안법 제16조, 안전보건규칙 제35조", "ret": "법정 기간 없음 — 권장 3년", "min": 5, "cond": "", "free": "/ref/supervisor-forms.html"}, {"id": 12, "c": 3, "n": "보호구 지급대장", "law": "안전보건규칙 제32조", "ret": "법정 기간 없음 — 권장 3년", "min": 1, "cond": "보호구 착용 작업이 있는 경우", "free": "/ref/safety-system-docs.html"}, {"id": 24, "c": 3, "n": "반기 비상훈련·일지", "law": "중대재해처벌법 시행령 제4조제8호", "ret": "점검 기록 법정 5년(중대재해처벌법 시행령 제13조)", "min": 5, "cond": "", "free": null}, {"id": 10, "c": 4, "n": "MSDS 관계철", "law": "산안법 제114조", "ret": "상시 비치", "min": 1, "cond": "MSDS 대상물질을 취급하는 경우", "free": null}, {"id": 13, "c": 4, "n": "작업환경측정 결과", "law": "산안법 제125조", "ret": "법정 5년(일부 물질 30년, 시행규칙 제241조)", "min": 1, "cond": "측정 대상 유해인자가 있는 경우", "free": null}, {"id": 14, "c": 4, "n": "건강진단 결과(일반·특수·배치 전)", "law": "산안법 제129~131조", "ret": "법정 5년(일부 물질 30년, 시행규칙 제241조)", "min": 1, "cond": "특수·배치 전은 유해인자 노출 시", "free": null}, {"id": 22, "c": 5, "n": "안전검사·안전인증·자율안전확인 서류", "law": "산안법 제84·89·93조", "ret": "3년(자율확인·자율검사 증빙 2년, 법 제164조)", "min": 1, "cond": "대상 기계·설비가 있는 경우", "free": null}, {"id": 23, "c": 5, "n": "도급 시 협의체·순회점검·합동점검", "law": "산안법 제62·64조", "ret": "법정 기간 없음 — 권장 3년", "min": 1, "cond": "도급을 주는 경우", "free": null}, {"id": 2, "c": 6, "n": "산업안전보건법령 요지 게시", "law": "산안법 제34조", "ret": "게시·비치", "min": 1, "cond": "", "free": null}, {"id": 6, "c": 6, "n": "반기 법규준수 이행 점검", "law": "중대재해처벌법 시행령 제5조", "ret": "법정 5년(중대재해처벌법 시행령 제13조)", "min": 5, "cond": "", "free": null}, {"id": 5, "c": 6, "n": "관리감독자 반기 평가서", "law": "중대재해처벌법 시행령 제4조제5호", "ret": "법정 5년(중대재해처벌법 시행령 제13조)", "min": 5, "cond": "", "free": "/ref/supervisor-forms.html"}, {"id": 19, "c": 6, "n": "정기 안전상태보고서", "law": "산안법 제21조, 시행규칙 제20조", "ret": "법정 기간 없음 — 권장 3년", "min": 50, "cond": "안전관리 업무를 위탁한 경우", "free": null}, {"id": 1, "c": 6, "n": "산업재해조사표·재발방지계획·수시 위험성평가", "law": "산안법 제57조, 시행규칙 제73조", "ret": "법정 3년(법 제164조)", "min": 1, "cond": "재해 발생·수시평가 사유가 있는 경우", "free": null}]}
 ;
 var $=function(i){return document.getElementById(i)},st={};
-function applies(it,n){if(it.min==='r50')return n>=50;return n>=it.min}
-function build(){var n=parseInt($('n').value,10);if(!(n>0)){$('n').focus();return}
- st={};var h='',cnt=0;
- D.cat.forEach(function(c,ci){var rows=D.items.filter(function(it){return it.c===ci&&applies(it,n)});if(!rows.length)return;
-  h+='<h3 class="catt">'+c+'</h3><div class="items">';
-  rows.forEach(function(it){cnt++;var tag=(it.cond?'<span class="tag">해당 시</span>':'');
-   h+='<div class="it"><div><b>'+it.n+'</b>'+tag+'<small>'+(it.cond?it.cond+' · ':'')+it.ret+'</small></div><div class="seg" data-id="'+it.id+'"><button type="button" data-v="y">있음</button><button type="button" data-v="n">없음</button>'+(it.cond||it.min==='r50'?'<button type="button" data-v="x">해당 없음</button>':'')+'</div></div>'});
-  h+='</div>'});
- $('list').innerHTML='<h2 style="font-size:20px;margin-top:22px">'+n+'명 사업장 비치서류 '+cnt+'종</h2>'+h;$('list').hidden=false;$('bar2').hidden=false;$('out').hidden=true;
- $('list').scrollIntoView({behavior:'smooth',block:'start'})}
-document.addEventListener('click',function(e){var b=e.target.closest('.seg button');if(!b)return;var s=b.parentNode;
- [].forEach.call(s.children,function(x){x.classList.remove('on')});b.classList.add('on');st[s.dataset.id]=b.dataset.v});
-function result(){var n=parseInt($('n').value,10),miss=[],y=0,tot=0,un=0;
- D.items.forEach(function(it){if(!applies(it,n))return;var v=st[it.id];if(v==='x')return;tot++;if(v==='y')y++;else{miss.push(it);if(!v)un++}});
- $('sum').textContent=miss.length?'챙겨야 할 서류 '+miss.length+'종':'필요한 서류를 모두 갖추셨네요';
- $('score').textContent='준비율 '+(tot?Math.round(y/tot*100):0)+'% ('+y+'/'+tot+'종)'+(un?' · 선택하지 않은 '+un+'종도 없음으로 셌어요':'');
- $('miss').innerHTML=miss.map(function(it){return '<li><b>'+it.n+'</b><span>보존: '+it.ret+'</span><small>근거: '+it.law+'</small>'+
-  (it.free?'<a class="act free" href="'+it.free+'">무료 양식 받기 →</a>':'<a class="act paid" href="https://naver.me/GIIegHdb" target="_blank" rel="noopener">상담 시 양식·작성 방법 제공 →</a>')+'</li>'}).join('');
+var $=function(i){return document.getElementById(i)},st={},N=0;
+function applies(it,n){return it.min==='r50'?n>=50:n>=it.min}
+function rows(ci){return D.items.filter(function(it){return it.c===ci&&applies(it,N)})}
+function build(){N=parseInt($('n').value,10);if(!(N>0)){$('n').focus();return}
+ st={};var h='',cnt=0,first=true;
+ D.cat.forEach(function(c,ci){var r=rows(ci);if(!r.length)return;cnt+=r.length;
+  h+='<details class="acc" data-c="'+ci+'"'+(first?' open':'')+'><summary><span class="no">'+(ci+1)+'</span>'+c+'<span class="prog" id="p'+ci+'">응답 0/'+r.length+'</span></summary><div class="items">';first=false;
+  r.forEach(function(it){h+='<div class="it"><div><b>'+it.n+'</b>'+(it.cond?'<span class="tag">해당 시</span>':'')+'<small>'+(it.cond?it.cond+' · ':'')+it.ret+'</small></div><div class="seg" data-id="'+it.id+'" data-c="'+ci+'"><button type="button" data-v="y">있음</button><button type="button" data-v="n">없음</button>'+(it.cond||it.min==='r50'?'<button type="button" data-v="x">해당 없음</button>':'')+'</div></div>'});
+  h+='</div></details>'});
+ $('list').innerHTML='<h2 style="font-size:20px;margin-top:22px">'+N+'명 사업장 비치서류 '+cnt+'종</h2><p class="hint">분야를 눌러 펼치고 하나씩 답해 주세요. 한 분야를 다 답하면 다음 분야가 열립니다.</p>'+h;
+ $('list').hidden=false;$('bar2').hidden=false;$('out').hidden=true;$('list').scrollIntoView({behavior:'smooth',block:'start'})}
+function prog(ci){var r=rows(ci),a=r.filter(function(it){return st[it.id]}).length,el=$('p'+ci);el.textContent='응답 '+a+'/'+r.length;el.classList.toggle('done',a===r.length);return a===r.length}
+document.addEventListener('click',function(e){var b=e.target.closest('.seg button');if(!b)return;var s=b.parentNode,ci=+s.dataset.c;
+ [].forEach.call(s.children,function(x){x.classList.remove('on')});b.classList.add('on');st[s.dataset.id]=b.dataset.v;
+ if(prog(ci)){var cur=s.closest('details'),nx=cur.nextElementSibling;if(nx&&nx.tagName==='DETAILS'&&!nx.open){cur.open=false;nx.open=true;nx.scrollIntoView({behavior:'smooth',block:'start'})}}});
+function col(p){return p>=80?'#2a8a68':p>=50?'#f59e0b':'#dc2626'}
+function short(c){return c.split('·')[0]}
+function result(){var T={y:0,n:0,u:0},S=[];
+ D.cat.forEach(function(c,ci){var r=rows(ci);if(!r.length)return;var o={ci:ci,c:c,y:0,n:0,u:0,miss:[]};
+  r.forEach(function(it){var v=st[it.id];if(v==='x')return;if(v==='y')o.y++;else if(v==='n'){o.n++;o.miss.push(it)}else{o.u++;o.miss.push(it)}});
+  o.t=o.y+o.n+o.u;if(!o.t)return;o.p=Math.round(o.y/o.t*100);T.y+=o.y;T.n+=o.n;T.u+=o.u;S.push(o)});
+ var tot=T.y+T.n+T.u;$('ky').textContent=T.y;$('kn').textContent=T.n;$('ku').textContent=T.u;
+ $('sum').textContent='서류 준비율 '+(tot?Math.round(T.y/tot*100):0)+'% · 챙겨야 할 서류 '+(T.n+T.u)+'종';
+ // mind map
+ var cx=380,cy=235,R=170,svg='';
+ S.forEach(function(o,i){var a=-Math.PI/2+i*2*Math.PI/S.length,x=cx+R*Math.cos(a)*1.25,y=cy+R*Math.sin(a);
+  svg+='<line x1="'+cx+'" y1="'+cy+'" x2="'+x+'" y2="'+y+'" stroke="'+col(o.p)+'" stroke-width="'+(4+o.t)+'" stroke-linecap="round" opacity=".35"/>'});
+ svg+='<circle cx="'+cx+'" cy="'+cy+'" r="62" fill="#0f3b2c"/><text x="'+cx+'" y="'+(cy-6)+'" text-anchor="middle" fill="#fff" font-size="16" font-weight="800">우리 사업장</text><text x="'+cx+'" y="'+(cy+18)+'" text-anchor="middle" fill="#c8e86b" font-size="20" font-weight="800">'+(tot?Math.round(T.y/tot*100):0)+'%</text>';
+ S.forEach(function(o,i){var a=-Math.PI/2+i*2*Math.PI/S.length,x=cx+R*Math.cos(a)*1.25,y=cy+R*Math.sin(a);
+  svg+='<g class="node" data-g="g'+o.ci+'"><rect x="'+(x-74)+'" y="'+(y-30)+'" width="148" height="60" rx="14" fill="#fff" stroke="'+col(o.p)+'" stroke-width="3"/><text x="'+x+'" y="'+(y-6)+'" text-anchor="middle" font-size="14" font-weight="700" fill="#10231c">'+short(o.c)+'</text><text x="'+x+'" y="'+(y+16)+'" text-anchor="middle" font-size="14" font-weight="800" fill="'+col(o.p)+'">'+o.y+'/'+o.t+' · '+o.p+'%</text></g>'});
+ $('map').innerHTML=svg;
+ $('bars').innerHTML=S.map(function(o){return '<div class="bar" data-g="g'+o.ci+'"><div class="t">'+(o.ci+1)+'. '+o.c+'<span>갖춤 '+o.y+' · 없음 '+o.n+(o.u?' · 미확인 '+o.u:'')+'</span></div><div class="track"><i class="c-y" style="width:'+(o.y/o.t*100)+'%"></i><i class="c-n" style="width:'+(o.n/o.t*100)+'%"></i><i class="c-u" style="width:'+(o.u/o.t*100)+'%"></i></div></div>'}).join('');
+ $('groups').innerHTML=S.filter(function(o){return o.miss.length}).map(function(o){return '<div class="rgrp"><h3 id="g'+o.ci+'">'+(o.ci+1)+'. '+o.c+' — 챙길 서류 '+o.miss.length+'종</h3><ul class="miss">'+o.miss.map(function(it){return '<li><b>'+it.n+(st[it.id]?'':' <span class="tag">미확인</span>')+'</b><span>보존: '+it.ret+'</span><small>근거: '+it.law+'</small>'+
+  (it.free?'<a class="act free" href="'+it.free+'">무료 양식 받기 →</a>':'<a class="act paid" href="https://naver.me/GIIegHdb" target="_blank" rel="noopener">상담 시 양식·작성 방법 제공 →</a>')+'</li>'}).join('')+'</ul></div>'}).join('')||'<p class="score">필요한 서류를 모두 갖추셨네요. 보존기간만 잘 지켜 주세요.</p>';
  $('out').hidden=false;$('out').scrollIntoView({behavior:'smooth',block:'start'})}
+document.addEventListener('click',function(e){var g=e.target.closest('[data-g]');if(!g)return;var t=$(g.dataset.g);if(t)t.scrollIntoView({behavior:'smooth',block:'start'})});
 $('go').addEventListener('click',build);$('n').addEventListener('keydown',function(e){if(e.key==='Enter')build()});$('chk').addEventListener('click',result);
 })();
 </script>
