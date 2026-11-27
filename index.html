@@ -245,6 +245,14 @@ footer b{color:var(--ink2)}
 .dlg-h .x{font:inherit;font-size:18px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:#fff;cursor:pointer;flex:0 0 38px}
 .chkfab{position:fixed;right:18px;bottom:18px;z-index:20;background:var(--g700);color:#fff;font-weight:700;font-size:14px;padding:12px 16px;border-radius:99px;box-shadow:0 6px 20px rgba(15,59,44,.3)}
 .chkfab:hover{background:var(--g900)}
+.fabm{position:fixed;right:18px;bottom:18px;z-index:20}
+.fabm>summary.chkfab{position:static;list-style:none;cursor:pointer;display:inline-block}
+.fabm>summary::-webkit-details-marker{display:none}
+.fabm-list{position:absolute;right:0;bottom:56px;width:250px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 30px rgba(15,59,44,.22);padding:8px;display:grid;gap:4px}
+.fabm-list a{display:block;text-decoration:none;padding:10px 12px;border-radius:10px;color:var(--ink)}
+.fabm-list a:hover{background:var(--lime2)}
+.fabm-list b{display:block;font-size:15px}.fabm-list small{font-size:12px;color:var(--mute)}
+
 .hero{background:var(--g900);color:#fff;border-radius:20px;padding:40px 36px;margin:24px 0 8px}
 .hero-tag{display:inline-block;font-size:13px;font-weight:700;color:var(--lime);letter-spacing:-.01em}
 .hero h1{font-size:clamp(26px,3.8vw,42px);line-height:1.25;letter-spacing:-.03em;margin:12px 0 14px;color:#fff}
@@ -466,7 +474,12 @@ footer b{color:var(--ink2)}
 
     <p class="note">※ 자가진단은 참고용입니다. 법적 이행 여부는 사업장 상황에 따라 전문가 확인이 필요합니다.</p>
 </dialog>
-<a class="chkfab" href="#check" data-open-check aria-label="1분 자가진단 열기">🧭 1분 자가진단</a>
+<details class="fabm"><summary class="chkfab" aria-label="무료 점검 도구 열기">🧭 1분 무료 점검</summary>
+<div class="fabm-list">
+  <a href="#check" data-open-check><b>1분 자가진단</b><small>안전보건관리체계 7대 요소</small></a>
+  <a href="/tools/documents.html"><b>비치서류 점검</b><small>빠진 서류·보존기간 찾기</small></a>
+  <a href="/tools/duties.html"><b>우리 회사 의무 확인</b><small>인원수로 선임·교육 의무 보기</small></a>
+</div></details>
 
 
 <footer><div class="wrap">
