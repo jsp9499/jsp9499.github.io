@@ -99,10 +99,10 @@ a{color:inherit}
 var L={a:'https://www.law.go.kr/법령/산업안전보건법',r:'https://www.law.go.kr/법령/산업안전보건법시행령',k:'https://www.law.go.kr/법령/산업안전보건법시행규칙',z:'https://www.law.go.kr/법령/중대재해처벌등에관한법률'};
 // 판정: 'o' 해당, 'c' 조건부, 'x' 해당 없음
 var D=[
-{t:'위험성평가 실시·기록',f:function(n){return 'o'},refs:[['과태료 기준 정리','/ref/risk-assessment-fines.html'],['근로자 교육자료','/ref/risk-assessment-training.html'],['TBM 회의록 양식','/ref/tbm-meeting-log.html'],['컨설팅 소개 자료','/ref/risk-assessment-consulting.html'],['칼럼: 과태료 신설, 규제일까 기회일까','/column/risk-assessment-revision.html'],['이슈레터: 위험성평가 지침 개정','/letter/sample.html'],['블로그: 위험성평가 글 (네이버)','https://blog.naver.com/jsp9499']],d:'모든 사업장. 근로자 참여, 결과 공유, 기록 보존이 함께 필요합니다.',law:'산업안전보건법 제36조',u:L.a,go:'/service/risk-assessment.html'},
+{t:'위험성평가 실시·기록',f:function(n){return 'o'},refs:[['과태료 기준 정리','/ref/risk-assessment-fines.html'],['근로자 교육자료','/ref/risk-assessment-training.html'],['TBM 회의록 양식','/ref/tbm-meeting-log.html'],['컨설팅 소개 자료','/ref/risk-assessment-consulting.html'],['칼럼: 과태료 신설, 규제일까 기회일까','/column/risk-assessment-revision.html'],['이슈레터: 위험성평가 지침 개정','/letter/sample.html'],['블로그: 안 하면 과태료?','https://blog.naver.com/jsp9499/224477284410'],['블로그: 정기평가 주기','https://blog.naver.com/jsp9499/224484855156']],d:'모든 사업장. 근로자 참여, 결과 공유, 기록 보존이 함께 필요합니다.',law:'산업안전보건법 제36조',u:L.a,go:'/service/risk-assessment.html'},
 {t:'근로자 정기 안전보건교육',f:function(n){return n<5?'x':'o'},d:'반기별 정기교육, 채용 시·작업내용 변경 시 교육.',dx:'5명 미만은 적용 제외. 단, 유해·위험 작업 특별교육(제29조제3항)은 적용됩니다.',law:'산업안전보건법 제29조, 시행령 별표 1',u:L.a,go:'/service/safety-education.html'},
 {t:'관리감독자 지정·교육',f:function(n){return n<5?'x':'o'},d:'생산을 직접 지휘·감독하는 사람(반장·조장 등)의 업무 수행과 연 16시간 교육.',dx:'5명 미만은 적용 제외(시행령 별표 1).',law:'산업안전보건법 제16조, 시행령 제15조',u:L.a,go:'/ref/supervisor-forms.html'},
-{t:'중대재해처벌법 적용 (안전보건관리체계 구축)',f:function(n){return n<5?'x':'o'},d:'경영책임자의 안전보건 확보의무(9가지 조치). 50명 미만도 2024년 1월 27일부터 적용.',dx:'상시근로자 5명 미만은 적용 제외.',law:'중대재해처벌법 제3조·제4조',u:L.z,go:'/service/safety-system.html'},
+{t:'중대재해처벌법 적용 (안전보건관리체계 구축)',f:function(n){return n<5?'x':'o'},refs:[['안전보건관리체계 서류 목록','/ref/safety-system-docs.html'],['블로그: 체계 구축 7대 요소','https://blog.naver.com/jsp9499/224484052382']],d:'경영책임자의 안전보건 확보의무(9가지 조치). 50명 미만도 2024년 1월 27일부터 적용.',dx:'상시근로자 5명 미만은 적용 제외.',law:'중대재해처벌법 제3조·제4조',u:L.z,go:'/service/safety-system.html'},
 {t:'안전보건관리담당자 선임',f:function(n){return n>=20&&n<50?'o':'x'},d:'제조업 20~49명. 안전관리전문기관에 위탁할 수 있습니다.',dx:'제조업은 20~49명 사업장이 대상.',law:'산업안전보건법 제19조, 시행령 제24·25조',u:L.a,go:'/ref/safety-health-manager.html'},
 {t:'안전관리자 선임',f:function(n){return n<50?'x':'c'},d:'',dyn:function(n){return n<300?'제조업 50명 이상. 300명 미만은 안전관리전문기관 위탁 가능.':'제조업 300명 이상은 전담 선임, 위탁 불가.'},law:'산업안전보건법 제17조, 시행령 별표 3',u:L.r,go:'/service/safety-agency.html'},
 {t:'보건관리자 선임',f:function(n){return n<50?'x':'c'},dyn:function(n){return n<300?'제조업 50명 이상(별표 5 업종). 300명 미만은 보건관리전문기관 위탁 가능.':'300명 이상은 전담 선임, 위탁 불가.'},law:'산업안전보건법 제18조, 시행령 별표 5',u:L.r},
@@ -113,7 +113,7 @@ var D=[
 ];
 var $=function(i){return document.getElementById(i)};
 function li(x,n,s){var d=(x.dyn?x.dyn(n):'')||(s==='x'&&x.dx?x.dx:x.d)||'';
- return '<li><b>'+x.t+'</b><span>'+d+'</span><small><a href="'+x.u+'" target="_blank" rel="noopener">'+x.law+'</a>'+(x.go&&s!=='x'?' · <a href="'+x.go+'">관련 안내 →</a>':'')+'</small>'+(x.refs&&s!=='x'?'<div class="refs"><b>참고자료</b>'+x.refs.map(function(r){return '<a href="'+r[1]+'">'+r[0]+'</a>'}).join('')+'</div>':'')+'</li>'}
+ return '<li><b>'+x.t+'</b><span>'+d+'</span><small><a href="'+x.u+'" target="_blank" rel="noopener">'+x.law+'</a>'+(x.go&&s!=='x'?' · <a href="'+x.go+'">관련 안내 →</a>':'')+'</small>'+(x.refs&&s!=='x'?'<div class="refs"><b>참고자료</b>'+x.refs.map(function(r){return '<a href="'+r[1]+'"'+(r[1].indexOf('http')===0?' target="_blank" rel="noopener"':'')+'>'+r[0]+'</a>'}).join('')+'</div>':'')+'</li>'}
 function run(){var n=parseInt($('n').value,10);if(!(n>0)){$('n').focus();return}
  var corp=$('corp').checked,o='',c='',x='',k={o:0,c:0};
  D.forEach(function(d){var s=d.f(n,corp);if(s==='o'){o+=li(d,n,s);k.o++}else if(s==='c'){c+=li(d,n,s);k.c++}else x+=li(d,n,s)});
