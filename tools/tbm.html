@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TBM·작업 전 점검표 웹 작성 (지게차·프레스·컨베이어) — 무료 A4 출력 | 컨설턴트 박준서</title>
+<meta name="description" content="작업을 고르면 안전보건규칙 별표3 작업 시작 전 점검사항과 TBM 공통 항목이 나옵니다. 완료·미조치를 체크하고 조치·담당·기한을 적어 A4로 바로 출력하세요. 무료·회원가입 없음·입력값 저장 안 함.">
+<link rel="canonical" href="https://jsp9499.github.io/tools/tbm.html">
+<meta property="og:title" content="TBM·작업 전 점검표 웹 작성 | 컨설턴트 박준서">
+<meta property="og:description" content="작업을 고르면 안전보건규칙 별표3 작업 시작 전 점검사항과 TBM 공통 항목이 나옵니다. 완료·미조치를 체크하고 조치·담당·기한을 적어 A4로 바로 출력하세요. 무료·회원가입 없음·입력값 저장 안 함.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jsp9499.github.io/tools/tbm.html">
+<style>
+:root{--ink:#10231c;--ink2:#3d5249;--mute:#6e8079;--bg:#f3f6f4;--line:#dbe4df;--g900:#0f3b2c;--g700:#17614a;--g500:#2a8a68;--lime:#8cc63f;--lime2:#e8f4d6;--mono:ui-monospace,Menlo,Consolas,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.7;font-size:16px}
+a{color:inherit}
+.w{max-width:1000px;margin:0 auto;padding:0 20px 48px}
+.crumb{font-size:13px;color:var(--mute);margin:18px 0 6px}.crumb a{text-decoration:none}
+.hero{background:linear-gradient(135deg,var(--g900),var(--g700));color:#fff;border-radius:18px;padding:28px 24px}
+.hero h1{font-size:clamp(24px,4vw,34px);letter-spacing:-.02em;line-height:1.3;margin-bottom:8px}
+.hero p{color:#cfe3d9}
+.grp{margin-top:28px}
+.grp h2{font-size:20px;letter-spacing:-.02em;margin-bottom:4px}
+.grp>p{color:var(--ink2);font-size:15px;margin-bottom:12px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}@media(max-width:700px){.grid{grid-template-columns:1fr}}
+.card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;text-decoration:none;transition:border-color .15s,transform .15s}
+.card:hover{border-color:var(--g500);transform:translateY(-2px)}
+.card h3{font-size:17px;letter-spacing:-.02em;margin-bottom:8px;line-height:1.4}
+.card p{font-size:14px;color:var(--ink2)}
+.card dl{display:grid;grid-template-columns:72px 1fr;gap:6px 8px;font-size:14px;margin-top:4px}
+.card dt{color:var(--g700);font-weight:700}
+.card dd{color:var(--ink2)}
+.card .more{display:inline-block;margin-top:auto;padding-top:12px;font-weight:700;color:var(--g700);font-size:14px}
+.law{font-size:12px;color:var(--mute);margin-top:10px;border-top:1px dashed var(--line);padding-top:8px}
+.band{margin-top:32px;background:var(--g900);color:#fff;border-radius:16px;padding:24px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between}
+.band p{color:#cfe3d9;font-size:15px}
+.band .b{display:flex;flex-wrap:wrap;gap:8px}
+.band a{text-decoration:none;font-weight:700;padding:11px 18px;border-radius:10px;border:1px solid #6f9b87;color:#e6f1ec}
+.band a.p{background:var(--lime);border-color:var(--lime);color:var(--g900)}
+.tool{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;margin-top:18px}
+.tool .row{display:flex;gap:10px;margin:8px 0 10px}
+.tool input[type=number]{flex:1;font-size:18px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-family:inherit}
+.tool button{background:var(--g700);color:#fff;border:0;border-radius:99px;padding:0 28px;font-size:17px;box-shadow:0 6px 20px rgba(15,59,44,.3);font-weight:700;cursor:pointer;font-family:inherit}
+.tool .chk{display:flex;gap:8px;align-items:center;font-size:15px;color:var(--ink2)}
+.tool .hint{font-size:13px;color:var(--mute);margin-top:8px}
+.out{margin-top:20px}.out h2{font-size:20px;margin-bottom:10px}
+.fine{background:var(--lime2);border-radius:12px;padding:12px 16px;font-size:15px;margin-bottom:14px}.fine a{color:var(--g700);font-weight:700}
+.out .cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media(max-width:760px){.out .cols{grid-template-columns:1fr}}
+.out h3{font-size:16px;margin-bottom:8px}.c-o{color:var(--g700)}.c-c{color:#b45309}
+.out ul{list-style:none;display:grid;gap:10px}
+.out li{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px}
+.out li b{display:block;font-size:16px}.out li span{display:block;font-size:14px;color:var(--ink2);margin:4px 0}
+.out li small{font-size:12px;color:var(--mute)}.out li a{color:var(--g700)}
+.refs{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);display:flex;flex-wrap:wrap;gap:6px;align-items:center}.refs b{font-size:13px;color:var(--g700);margin-right:2px}.refs a{font-size:13px;background:var(--lime2);color:var(--g900)!important;text-decoration:none;padding:4px 10px;border-radius:999px}
+.out details{margin-top:14px}.out summary{cursor:pointer;font-weight:700;color:var(--ink2)}.out details ul{margin-top:10px}
+.meta{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0}.meta input{width:100%;font-size:15px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;font-family:inherit}
+.meta label{font-size:13px;font-weight:700;color:var(--ink2)}
+.jobs{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.jobs label{display:flex;gap:6px;align-items:center;border:1px solid var(--line);border-radius:99px;padding:8px 14px;cursor:pointer;font-weight:700;background:#fff}
+.jobs input{accent-color:var(--g700)}
+.sec2{background:#fff;border:1px solid var(--line);border-radius:14px;margin-top:14px;padding:6px 14px 12px}.sec2 h3{font-size:17px;margin:10px 0}
+.q{border-top:1px solid var(--line);padding:10px 0}.q .top{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}
+.q b{font-size:15px}.q small{display:block;font-size:12px;color:var(--mute)}.q .lg{font-size:11px;font-weight:800;border-radius:6px;padding:1px 6px;margin-left:6px}.lg.b{background:#e8f4d6;color:#17614a}.lg.r{background:#eef2f0;color:#6e8079}
+.seg{display:flex;border:1px solid var(--line);border-radius:9px;overflow:hidden}.seg button{border:0;background:#fff;padding:7px 10px;font-size:13px;font-family:inherit;cursor:pointer;color:var(--ink2)}.seg button+button{border-left:1px solid var(--line)}
+.seg button.on[data-v=y]{background:var(--g700);color:#fff}.seg button.on[data-v=n]{background:#b91c1c;color:#fff}.seg button.on[data-v=x]{background:#94a3b8;color:#fff}
+.fix{display:none;grid-template-columns:2fr 1fr 1fr;gap:6px;margin-top:8px}.q.miss .fix{display:grid}.fix input{font-size:14px;padding:8px 10px;border:1px solid #fca5a5;border-radius:8px;font-family:inherit}
+.acts{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:20px 0}.acts button{border:0;border-radius:99px;padding:13px 24px;font-size:16px;font-weight:700;font-family:inherit;cursor:pointer;background:var(--g700);color:#fff;box-shadow:0 6px 18px rgba(15,59,44,.25)}.acts button.l{background:#fff;color:var(--g700);border:1px solid var(--g700);box-shadow:none}
+.sumline{text-align:center;font-weight:700;margin-top:6px}
+#sheet{display:none}
+@media(max-width:620px){.meta{grid-template-columns:1fr}.q .top{grid-template-columns:1fr}.fix{grid-template-columns:1fr}}
+@media print{@page{size:A4;margin:12mm}body{background:#fff;padding:0!important}body>*:not(main),main>*:not(#sheet){display:none!important}main{padding:0!important;margin:0!important;max-width:none!important}#sheet{display:block;width:100%;font-size:10.5pt;color:#000}
+#sheet h1{font-size:16pt;margin:0 0 4pt}#sheet .hd{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid #000;margin-bottom:6pt}#sheet .hd div{border-right:1px solid #000;padding:3pt 5pt}#sheet .hd div:last-child{border:0}
+#sheet table{width:100%;border-collapse:collapse;margin-bottom:6pt}#sheet th,#sheet td{border:1px solid #000;padding:2.5pt 4pt;vertical-align:top}#sheet th{background:#e8f4d6;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+#sheet .st{text-align:center;width:16mm}#sheet .sig td{height:9mm}#sheet .ft{font-size:8pt;color:#333}}
+.srcbox{margin-top:24px;padding:16px 20px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--g700);border-radius:12px;font-size:14px;color:var(--ink2)}.srcbox ul{margin:6px 0 4px 18px}.srcbox a{color:var(--g700)}.srcbox small{color:var(--mute)}
+</style>
+<style id="sn-css">
+.sn{background:#14402a;color:#fff;position:sticky;top:0;z-index:50;font-family:inherit}
+.sn-in{max-width:1120px;margin:0 auto;padding:10px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.sn-brand{color:#fff;font-weight:800;font-size:15px;text-decoration:none;line-height:1.25;white-space:nowrap}
+.sn-brand small{display:block;font-size:11px;font-weight:600;color:#b9d6c8}
+.sn-nav{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.sn-nav::-webkit-scrollbar{display:none}
+.sn-nav a{color:#e6f1ec;text-decoration:none;font-size:14px;font-weight:600;padding:8px 11px;border-radius:8px;white-space:nowrap}
+.sn-nav a:hover,.sn-nav a[aria-current]{background:rgba(255,255,255,.12);color:#fff}
+.sn-nav a.sn-cta{background:#c8e86b;color:#14402a}
+@media(max-width:720px){.sn-in{flex-direction:column;align-items:stretch;gap:6px;padding:8px 12px}.sn-nav a{font-size:13px;padding:7px 9px}}
+</style><style id="fab-css">.fabs{position:fixed;right:18px;bottom:18px;z-index:40;display:flex;flex-direction:column;align-items:flex-end;gap:8px;font-family:inherit}
+.fabs .fab{display:flex;align-items:center;gap:8px;background:#17614a;color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:11px 16px;border-radius:99px;box-shadow:0 6px 20px rgba(15,59,44,.3);line-height:1.2}
+.fabs .fab:hover{background:#0f3b2c}.fabs .fab i{font-style:normal}.fabs .fab:first-child{background:#8cc63f;color:#0f3b2c}
+@media(max-width:720px){.fabs{left:0;right:0;bottom:0;flex-direction:row;gap:0;background:#fff;border-top:1px solid #dbe4df;box-shadow:0 -4px 16px rgba(0,0,0,.08);padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
+.fabs .fab,.fabs .fab:first-child{flex:1;flex-direction:column;gap:2px;background:none;color:#0f3b2c;box-shadow:none;padding:6px 2px;font-size:11px;border-radius:10px;text-align:center}.fabs .fab i{font-size:20px}body{padding-bottom:72px}}
+.fabs .fab[aria-current]{box-shadow:0 0 0 3px #c8e86b}@media(max-width:720px){.fabs .fab[aria-current]{background:#e8f4d6;box-shadow:none}}@media print{.fabs{display:none}}</style></head>
+<body>
+<div class="sn"><div class="sn-in"><a class="sn-brand" href="/">산업안전 법령·위험성평가 한눈에<small>컨설턴트 박준서</small></a><nav class="sn-nav" aria-label="주요 메뉴"><a href="/">홈</a><a href="/service/">서비스</a><a href="/case/">개선 사례</a><a href="/ref/" aria-current="page">자료·도구</a><a href="/#about" class="sn-cta">소개·상담</a></nav></div></div>
+<main class="w">
+<div class="crumb"><a href="/">홈</a> › <a href="/ref/">자료·도구</a> › TBM·작업 전 점검표</div>
+<section class="hero"><h1>오늘 작업 전 점검, 5분이면 끝</h1><p>작업을 고르면 법정 작업 시작 전 점검사항(안전보건규칙 별표 3)과 TBM 공통 항목이 나옵니다. 체크하고 미조치는 조치·담당·기한을 적어 A4로 출력하세요. 입력한 값은 저장되지 않습니다.</p></section>
+<section class="tool">
+ <div class="meta"><div><label for="dt">날짜</label><input id="dt" type="date"></div><div><label for="pl">작업 장소·공정</label><input id="pl" placeholder="예: 2라인 프레스"></div><div><label for="ld">작성자(리더)</label><input id="ld" placeholder="예: 반장 홍길동"></div></div>
+ <b>오늘 하는 작업</b> <span class="hint">(여러 개 고를 수 있어요. TBM 공통 항목은 항상 나옵니다)</span>
+ <div class="jobs"><label><input type="checkbox" value="지게차">🚜 지게차</label><label><input type="checkbox" value="프레스·전단기">⚙️ 프레스·전단기</label><label><input type="checkbox" value="컨베이어">📦 컨베이어</label></div>
+</section>
+<div id="list"></div>
+<p class="sumline" id="sum"></p>
+<div class="acts"><button type="button" id="pr">🖨️ A4로 출력하기</button><button type="button" class="l" id="rs">처음부터 다시</button></div>
+<div id="sheet"></div>
+<aside class="srcbox"><b>출처·기준일</b> — 2026년 11월 기준, 법제처 국가법령정보센터 원문 확인
+<ul><li><a href="https://www.law.go.kr/법령/산업안전보건기준에관한규칙" target="_blank" rel="noopener">산업안전보건기준에 관한 규칙</a> 별표 3(작업시작 전 점검사항) 제1호·제9호·제13호, 제32·92·103·104·172~195조</li>
+<li><a href="https://www.law.go.kr/법령/산업안전보건법" target="_blank" rel="noopener">산업안전보건법</a> 제36조, <a href="https://www.law.go.kr/행정규칙/사업장위험성평가에관한지침" target="_blank" rel="noopener">사업장 위험성평가에 관한 지침</a>(고시 제2026-73호)</li></ul>
+<small>'법정'은 별표 3 등 조문에 정해진 항목, '권장'은 실무에서 함께 확인하면 좋은 항목입니다. 설비 제조사 점검표와 사업장 위험성평가 결과에 맞게 더하거나 빼서 쓰세요. <a href="/ref/tbm-meeting-log.html">TBM 회의록 양식(PDF)</a>도 함께 쓸 수 있습니다.</small></aside>
+<script>
+(function(){
+var D={"공통": [["오늘 작업 내용·순서·담당을 서로 확인했다", "권장", "산안법 제36조제4항"], ["작업별 주요 위험과 예방조치를 함께 나눴다", "권장", "산안법 제36조제4항, 위험성평가 지침 제6조"], ["위험성평가에 참여하고 결과를 알고 있다", "법정", "산안법 제36조, 시행규칙 제37조의2·3"], ["지급된 보호구를 올바르게 착용했다", "법정", "안전보건규칙 제32조"], ["몸 상태·피로·불편한 점을 말하고 필요한 지원을 확인했다", "권장", "실무 권장"], ["비상정지·대피·연락 방법과 역할을 확인했다", "권장", "실무 권장"], ["지난번 미조치 사항의 담당과 완료 시점을 정했다", "권장", "위험성평가 지침 제17조"]], "지게차": [["브레이크·조종장치가 제대로 작동한다", "법정", "안전보건규칙 별표3 제9호가"], ["포크·마스트 등 하역장치와 유압장치가 정상이다", "법정", "별표3 제9호나"], ["바퀴가 손상되거나 빠질 우려가 없다", "법정", "별표3 제9호다"], ["전조등·후미등·방향지시기·경보장치가 작동한다", "법정", "별표3 제9호라"], ["포크·체인·타이어에 균열·변형·누유가 없다", "권장", "제조사 점검"], ["헤드가드·백레스트가 손상 없이 고정돼 있다", "권장", "안전보건규칙 제180조"], ["좌석 안전띠가 있고 잠금이 된다", "권장", "안전보건규칙 제183조"], ["운전 끝나면 포크를 바닥에 내리고 적재물이 안정돼 있다", "권장", "안전보건규칙 제175·176조"], ["통로·교차부에 보행자·장애물이 없고 경보음이 들린다", "권장", "안전보건규칙 제172·179조"]], "프레스·전단기": [["클러치와 브레이크가 정상 작동한다", "법정", "별표3 제1호가"], ["크랭크축·플라이휠·슬라이드·연결봉·연결 나사가 풀리지 않았다", "법정", "별표3 제1호나"], ["1행정 1정지·급정지·비상정지가 작동한다", "법정", "별표3 제1호다"], ["슬라이드·칼날의 접촉 방지기구가 작동한다", "법정", "별표3 제1호라"], ["금형과 고정볼트가 제대로 고정됐다", "법정", "별표3 제1호마"], ["방호장치가 정상 작동한다", "법정", "별표3 제1호바"], ["전단기 칼날·테이블에 이상이 없다", "법정", "별표3 제1호사"], ["손이 위험부에 들어가지 않게 덮개·방호장치를 쓴다", "권장", "안전보건규칙 제103조"], ["운전 모드·전환스위치가 작업에 맞다", "권장", "안전보건규칙 제103조"], ["금형 조정 중이면 안전블록 등 불시 하강 방지조치를 했다", "권장", "안전보건규칙 제104조"]], "컨베이어": [["원동기와 풀리가 정상 작동한다", "법정", "별표3 제13호가"], ["화물 이탈·역주행 방지장치가 정상이다", "법정", "별표3 제13호나"], ["비상정지장치가 작동한다", "법정", "별표3 제13호다"], ["원동기·회전축·기어·풀리의 덮개와 울이 온전하다", "법정", "별표3 제13호라"], ["기동·정지 신호와 주변 작업자 위치를 확인했다", "권장", "안전보건규칙 제191·192조"], ["말림 위험 지점에 접근 방지조치가 있다", "권장", "안전보건규칙 제191·192조"], ["화물 낙하 우려 구간에 덮개·울이 있다", "법정(해당 시)", "안전보건규칙 제193조"], ["막힘 제거·청소 전 기계 정지·전원차단·잠금표지를 한다", "권장", "안전보건규칙 제92조"], ["컨베이어를 넘어갈 때 건널다리를 쓴다", "법정(해당 시)", "안전보건규칙 제195조"]]},st={},$=function(i){return document.getElementById(i)};
+var today=new Date();$('dt').value=today.toISOString().slice(0,10);
+function jobs(){var j=['공통'];[].forEach.call(document.querySelectorAll('.jobs input:checked'),function(c){j.push(c.value)});return j}
+function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function draw(){var h='';jobs().forEach(function(k){h+='<section class="sec2"><h3>'+(k==='공통'?'🗣️ TBM 공통':k)+'</h3>';
+ D[k].forEach(function(q,i){var id=k+'|'+i,v=(st[id]||{}).v;h+='<div class="q'+(v==='n'?' miss':'')+'" data-id="'+id+'"><div class="top"><div><b>'+q[0]+'</b><span class="lg '+(q[1].indexOf('법정')===0?'b':'r')+'">'+q[1]+'</span><small>'+q[2]+'</small></div><div class="seg"><button type="button" data-v="y"'+(v==='y'?' class="on"':'')+'>완료</button><button type="button" data-v="n"'+(v==='n'?' class="on"':'')+'>미조치</button><button type="button" data-v="x"'+(v==='x'?' class="on"':'')+'>해당 없음</button></div></div><div class="fix"><input data-f="a" placeholder="조치 내용" value="'+esc((st[id]||{}).a||'')+'"><input data-f="w" placeholder="담당" value="'+esc((st[id]||{}).w||'')+'"><input data-f="d" placeholder="기한" value="'+esc((st[id]||{}).d||'')+'"></div></div>'});h+='</section>'});
+ $('list').innerHTML=h;sum()}
+function sum(){var y=0,n=0,u=0;jobs().forEach(function(k){D[k].forEach(function(q,i){var v=(st[k+'|'+i]||{}).v;if(v==='y')y++;else if(v==='n')n++;else if(v!=='x')u++})});
+ $('sum').textContent='완료 '+y+' · 미조치 '+n+' · 미확인 '+u}
+document.addEventListener('change',function(e){if(e.target.closest('.jobs'))draw()});
+document.addEventListener('click',function(e){var b=e.target.closest('.seg button');if(!b)return;var q=b.closest('.q'),id=q.dataset.id;st[id]=st[id]||{};st[id].v=b.dataset.v;
+ [].forEach.call(b.parentNode.children,function(x){x.classList.toggle('on',x===b)});q.classList.toggle('miss',b.dataset.v==='n');sum()});
+document.addEventListener('input',function(e){var f=e.target.dataset.f;if(!f)return;var id=e.target.closest('.q').dataset.id;st[id]=st[id]||{};st[id][f]=e.target.value});
+$('pr').addEventListener('click',function(){var h='<h1>TBM·작업 전 점검표</h1><div class="hd"><div>날짜: '+esc($('dt').value)+'</div><div>장소·공정: '+esc($('pl').value)+'</div><div>작성자: '+esc($('ld').value)+'</div><div>'+$('sum').textContent+'</div></div>';
+ jobs().forEach(function(k){h+='<table><tr><th style="width:44%">'+(k==='공통'?'TBM 공통':k)+' 점검 항목</th><th class="st">결과</th><th>조치 내용</th><th style="width:14%">담당</th><th style="width:12%">기한</th></tr>';
+  D[k].forEach(function(q,i){var s=st[k+'|'+i]||{},r={y:'완료',n:'미조치',x:'해당없음'}[s.v]||'';h+='<tr><td>'+q[0]+' <span class="ft">('+q[1]+')</span></td><td class="st">'+r+'</td><td>'+esc(s.a||'')+'</td><td>'+esc(s.w||'')+'</td><td>'+esc(s.d||'')+'</td></tr>'});h+='</table>'});
+ h+='<table class="sig"><tr><th colspan="6">참석자 확인 (이름·서명)</th></tr>'+'<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>'.repeat(2)+'</table><p class="ft">근거: 산업안전보건기준에 관한 규칙 별표 3 등 · 참고용 점검표 · jsp9499.github.io/tools/tbm.html</p>';
+ $('sheet').innerHTML=h;window.print()});
+$('rs').addEventListener('click',function(){st={};[].forEach.call(document.querySelectorAll('.jobs input'),function(c){c.checked=false});draw();window.scrollTo(0,0)});
+draw();
+})();
+</script>
+<div class="band"><div><b>우리 사업장은 어디부터 해야 할까요?</b><p>상황을 남겨 주시면 영업일 기준 <b>1일 이내 회신</b>을 원칙으로 합니다. 첫 상담 전화·자료 안내·간단한 현장 질문 답변은 <b>무료</b>입니다.</p></div>
+<div class="b"><a class="p" href="https://naver.me/GIIegHdb" target="_blank" rel="noopener">질문 남기기</a><a href="tel:0502-1944-9499">☎ 0502-1944-9499</a></div></div>
+</main>
+<div class="fabs" role="navigation" aria-label="무료 점검 도구"><a class="fab" href="/#check"><i>🧭</i><span>1분 자가진단</span></a><a class="fab" href="/tools/documents.html"><i>📋</i><span>비치서류 점검</span></a><a class="fab" href="/tools/duties.html" ><i>🔎</i><span>의무 확인</span></a><a class="fab" href="/tools/ghs-label.html"><i>⚠️</i><span>경고표지</span></a><a class="fab" href="/tools/ghs-label.html#guide"><i>📄</i><span>관리요령</span></a></div>
+</body>
+</html>
