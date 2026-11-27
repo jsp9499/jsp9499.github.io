@@ -213,7 +213,12 @@ input.srch{margin-bottom:6px}
 .pg-sheet .cell{position:absolute}
 .pg-sheet .cut{position:absolute;border:0.2mm dashed #888}
 .pg-sheet .cutnote{position:absolute;font-size:7pt;color:#888;font-family:sans-serif}
-</style></head><body>
+</style><style id="fab-css">.fabs{position:fixed;right:18px;bottom:18px;z-index:40;display:flex;flex-direction:column;align-items:flex-end;gap:8px;font-family:inherit}
+.fabs .fab{display:flex;align-items:center;gap:8px;background:#17614a;color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:11px 16px;border-radius:99px;box-shadow:0 6px 20px rgba(15,59,44,.3);line-height:1.2}
+.fabs .fab:hover{background:#0f3b2c}.fabs .fab i{font-style:normal}.fabs .fab:first-child{background:#8cc63f;color:#0f3b2c}
+@media(max-width:720px){.fabs{left:0;right:0;bottom:0;flex-direction:row;gap:0;background:#fff;border-top:1px solid #dbe4df;box-shadow:0 -4px 16px rgba(0,0,0,.08);padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
+.fabs .fab,.fabs .fab:first-child{flex:1;flex-direction:column;gap:2px;background:none;color:#0f3b2c;box-shadow:none;padding:6px 2px;font-size:11px;border-radius:10px;text-align:center}.fabs .fab i{font-size:20px}body{padding-bottom:72px}}
+@media print{.fabs{display:none}}</style></head><body>
 <div class="bar"><a href="/">← 컨설턴트 박준서</a><span>자료실 · 도구</span></div>
 <div class="wrap">
 <div class="crumb"><a href="/">홈</a> › 자료실 › 도구</div>
@@ -489,4 +494,5 @@ P410+P403 직사광선을 피하고 환기가 잘 되는 곳에 보관하시오.
 `),chars:r,pages:u}}i("fPdf").onchange=async e=>{const t=e.target.files[0];if(e.target.value="",!t)return;const s=(n,l)=>{i("parseMsg").innerHTML='<div class="msg '+n+'">'+l+"</div>"};if(t.size>3e7){s("bad","PDF가 너무 큽니다(30MB 이하).");return}if(location.protocol==="file:"){s("warn","PDF 읽기는 홈페이지에서 작동합니다. 내 PC에서 이 파일을 직접 열면 브라우저가 막습니다. MSDS 내용을 복사해 위 칸에 붙여 넣어 주세요.");return}s("ok","PDF를 읽는 중입니다… ("+X(t.name)+")");try{const n=new Uint8Array(await t.slice(0,5).arrayBuffer());if(String.fromCharCode(...n)!=="%PDF-"){s("bad","PDF 파일이 아닙니다.");return}const l=await S4(await t.arrayBuffer());if(l.chars<200){s("warn","글자를 거의 찾지 못했습니다. 스캔(사진)으로 만든 PDF로 보입니다. MSDS 내용을 복사해 위 칸에 붙여 넣어 주세요.");return}const a=l.text,r=a.search(/\n\s*1\.\s*화학제품/),u=a.search(/\n\s*9\.\s*물리/);i("paste").value=(r>=0?a.slice(r,u>r?u:void 0):a).trim(),i("bParse").click(),i("parseMsg").insertAdjacentHTML("afterbegin",'<div class="msg ok">PDF '+l.pages+"쪽에서 1~8번 항목을 읽었습니다. 내용이 맞는지 꼭 확인하세요.</div>")}catch(n){console.error("pdf",n&&n.message,n&&n.stack),s("bad","PDF를 읽지 못했습니다. 암호가 걸렸거나 손상된 파일일 수 있습니다. 내용을 복사해 붙여 넣어 주세요.")}},o3(),U(),I()})();
 </script>
 
+<div class="fabs" role="navigation" aria-label="무료 점검 도구"><a class="fab" href="/#check"><i>🧭</i><span>1분 자가진단</span></a><a class="fab" href="/tools/documents.html"><i>📋</i><span>비치서류 점검</span></a><a class="fab" href="/tools/duties.html"><i>🔎</i><span>의무 확인</span></a><a class="fab" href="/tools/ghs-label.html" aria-current="page"><i>⚠️</i><span>MSDS 경고표지</span></a></div>
 </body></html>

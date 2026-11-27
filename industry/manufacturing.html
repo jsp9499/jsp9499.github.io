@@ -138,7 +138,12 @@ footer{text-align:center;font-size:13px;color:var(--mute);padding:24px 20px 40px
 .sn-nav a:hover,.sn-nav a[aria-current]{background:rgba(255,255,255,.12);color:#fff}
 .sn-nav a.sn-cta{background:#c8e86b;color:#14402a}
 @media(max-width:720px){.sn-in{flex-direction:column;align-items:stretch;gap:6px;padding:8px 12px}.sn-nav a{font-size:13px;padding:7px 9px}}
-</style></head>
+</style><style id="fab-css">.fabs{position:fixed;right:18px;bottom:18px;z-index:40;display:flex;flex-direction:column;align-items:flex-end;gap:8px;font-family:inherit}
+.fabs .fab{display:flex;align-items:center;gap:8px;background:#17614a;color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:11px 16px;border-radius:99px;box-shadow:0 6px 20px rgba(15,59,44,.3);line-height:1.2}
+.fabs .fab:hover{background:#0f3b2c}.fabs .fab i{font-style:normal}.fabs .fab:first-child{background:#8cc63f;color:#0f3b2c}
+@media(max-width:720px){.fabs{left:0;right:0;bottom:0;flex-direction:row;gap:0;background:#fff;border-top:1px solid #dbe4df;box-shadow:0 -4px 16px rgba(0,0,0,.08);padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
+.fabs .fab,.fabs .fab:first-child{flex:1;flex-direction:column;gap:2px;background:none;color:#0f3b2c;box-shadow:none;padding:6px 2px;font-size:11px;border-radius:10px;text-align:center}.fabs .fab i{font-size:20px}body{padding-bottom:72px}}
+@media print{.fabs{display:none}}</style></head>
 <body>
 <div class="sn"><div class="sn-in"><a class="sn-brand" href="/">산업안전 법령·위험성평가 한눈에<small>컨설턴트 박준서</small></a><nav class="sn-nav" aria-label="주요 메뉴"><a href="/">홈</a><a href="/service/">서비스</a><a href="/case/">개선 사례</a><a href="/ref/" aria-current="page">자료·도구</a><a href="/#about" class="sn-cta">소개·상담</a></nav></div></div>
 <main class="w">
@@ -194,5 +199,6 @@ footer{text-align:center;font-size:13px;color:var(--mute);padding:24px 20px 40px
 
 </main>
 <footer>컨설턴트 박준서 · 함께하는 기관: 한국산업안전보건기술원 · 코리아세이프티(주) · <a href="/privacy.html">개인정보처리방침</a></footer>
+<div class="fabs" role="navigation" aria-label="무료 점검 도구"><a class="fab" href="/#check"><i>🧭</i><span>1분 자가진단</span></a><a class="fab" href="/tools/documents.html"><i>📋</i><span>비치서류 점검</span></a><a class="fab" href="/tools/duties.html"><i>🔎</i><span>의무 확인</span></a><a class="fab" href="/tools/ghs-label.html"><i>⚠️</i><span>MSDS 경고표지</span></a></div>
 </body>
 </html>
