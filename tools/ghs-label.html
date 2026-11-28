@@ -167,7 +167,7 @@ input.srch{margin-bottom:6px}
 .wslist{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px}
 .wslist label{display:flex;gap:6px;align-items:center;font-size:0.9em;border:1px solid #dfe9e2;border-radius:8px;padding:6px;cursor:pointer}
 .wslist img{width:34px;height:auto}
-.wspg{position:relative;width:210mm;height:297mm;box-sizing:border-box;padding:14mm 12mm;display:flex;flex-direction:column}
+.wspg{position:relative;width:210mm;height:296mm;box-sizing:border-box;padding:14mm 12mm;display:flex;flex-direction:column}
 .wspg h1{font-size:9mm;text-align:center;margin:0 0 2mm;word-break:keep-all}
 .wspg .sub{text-align:center;font-size:4mm;color:#333;margin-bottom:6mm}
 .wspg .grid{flex:1;display:flex;flex-wrap:wrap;justify-content:center;align-content:center;gap:8mm}
@@ -208,7 +208,7 @@ details.fold{margin-top:10px;border:1px solid #dfe9e2;border-radius:10px;padding
   body.printG>*:not(#gSheet){display:none!important}
   body.printG #gSheet{display:block}
   body.printG #sheet{display:none!important}
-  body.printG .gs{border-width:0.6mm;margin:10mm}
+  body.printG .gs{border-width:0.6mm;margin:8mm auto 0;page-break-after:avoid;break-after:avoid}
 }
 #sheet{display:none}
 @media(max-width:860px){.tool{grid-template-columns:minmax(0,1fr)}.sticky{position:static}.pics{grid-template-columns:repeat(5,1fr)}}
@@ -218,7 +218,7 @@ details.fold{margin-top:10px;border:1px solid #dfe9e2;border-radius:10px;padding
   body{background:#fff}
   body:not(.printG)>*:not(#sheet){display:none!important}
   body:not(.printG) #sheet{display:block}
-  .pg-sheet{width:210mm;height:297mm;position:relative;page-break-after:always;overflow:hidden}
+  .pg-sheet{width:210mm;height:296mm;position:relative;page-break-after:always;overflow:hidden}
   .pg-sheet:last-child{page-break-after:auto}
 }
 .pg-sheet .cell{position:absolute}
